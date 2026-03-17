@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raithe Raju – రైతు రాజు | Farmer Advisory Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Telugu&family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #0d2614;
+  --green-mid: #1e5c28;
+  --green-light: #3a8c44;
+  --amber: #d4870a;
+  --amber-light: #f0b429;
+  --gold: #ffd700;
+  --earth: #7a4f2c;
+  --cream: #fef9ed;
+  --cream-dark: #f5e9c8;
+  --text-dark: #12180e;
+  --text-mid: #2e3a28;
+  --text-light: #5a6b52;
+  --card-bg: rgba(254,249,237,0.9);
+  --shadow: 0 8px 40px rgba(13,38,20,0.22);
+  --good: #166534;
+  --moderate: #92400e;
+  --bad: #991b1b;
+  --blue: #1d4ed8;
+  --blue-light: #dbeafe;
+  --rain: #0369a1;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--green-deep);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%, rgba(58,140,68,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 85% 85%, rgba(212,135,10,0.10) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233a8c44' fill-opacity='0.03'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 74C21.2 74 6 58.8 6 40S21.2 6 40 6s34 15.2 34 34-15.2 34-34 34z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none; z-index:0;
+}
+
+/* ══ HEADER ══ */
+header {
+  position:relative; z-index:10;
+  background: linear-gradient(160deg, #061509 0%, #0d2614 45%, #122e18 100%);
+  border-bottom: 3px solid var(--amber);
+  overflow:hidden;
+}
+
+.header-glow {
+  position:absolute; top:-40px; left:50%; transform:translateX(-50%);
+  width:600px; height:200px;
+  background: radial-gradient(ellipse, rgba(212,135,10,0.25) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.header-inner {
+  max-width:1280px; margin:0 auto;
+  padding:28px 32px 24px;
+  display:flex; align-items:center; gap:24px;
+}
+
+.logo-wrap {
+  position:relative; flex-shrink:0;
+}
+
+.logo-icon {
+  width:78px; height:78px;
+  background: linear-gradient(135deg, #1a6b2a, #2d9e40);
+  border-radius:22px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:44px;
+  box-shadow: 0 6px 24px rgba(45,158,64,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+  animation: leafFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes leafFloat {
+  0%,100%{transform:translateY(0) rotate(-2deg);}
+  50%{transform:translateY(-8px) rotate(2deg);}
+}
+
+.crown-badge {
+  position:absolute; top:-8px; right:-8px;
+  background: linear-gradient(135deg,#3a8c44,#22c55e);
+  color: #fff;
+  font-size:0.68rem; font-weight:700;
+  padding:3px 8px; border-radius:50px;
+  letter-spacing:0.3px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.35);
+  white-space:nowrap;
+}
+
+.header-text { flex:1; }
+
+.header-text h1 {
+  font-family: 'Tiro Telugu', 'Playfair Display', serif;
+  font-size:2.6rem; font-weight:700;
+  color: var(--gold);
+  letter-spacing:-0.5px; line-height:1;
+  text-shadow: 0 2px 12px rgba(212,135,10,0.5);
+}
+
+.header-text .telugu-line {
+  font-family: 'Tiro Telugu', serif;
+  font-size:1.05rem;
+  color: rgba(240,180,41,0.75);
+  margin-top:5px;
+  letter-spacing:0.3px;
+}
+
+.header-text .eng-line {
+  font-size:0.88rem; font-weight:300;
+  color:rgba(254,249,237,0.5);
+  margin-top:3px;
+  letter-spacing:0.8px;
+}
+
+.nav-pills {
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+}
+
+.nav-pill {
+  padding:8px 18px; border-radius:50px;
+  font-size:0.83rem; font-weight:600;
+  cursor:pointer; transition:all 0.2s; text-decoration:none;
+}
+
+.nav-pill.active { background:var(--amber); color:#fff; }
+.nav-pill.outline {
+  border:1.5px solid rgba(240,180,41,0.35);
+  color:var(--amber-light);
+}
+.nav-pill.outline:hover { background:rgba(240,180,41,0.12); }
+
+.header-stats {
+  display:flex; gap:0;
+  background:rgba(255,255,255,0.05);
+  border-top:1px solid rgba(240,180,41,0.15);
+}
+
+.hstat {
+  flex:1; padding:10px 20px;
+  border-right:1px solid rgba(240,180,41,0.1);
+  display:flex; align-items:center; gap:10px;
+}
+.hstat:last-child{border-right:none;}
+.hstat-icon{font-size:1.2rem;}
+.hstat-label{font-size:0.72rem;color:rgba(254,249,237,0.45);letter-spacing:0.5px;text-transform:uppercase;}
+.hstat-val{font-size:0.92rem;color:var(--amber-light);font-weight:600;}
+
+/* ══ MAIN ══ */
+main {
+  position:relative; z-index:5;
+  max-width:1280px; margin:0 auto;
+  padding:44px 24px 80px;
+}
+
+/* ══ PANEL CARD ══ */
+.panel {
+  background:var(--card-bg);
+  backdrop-filter:blur(14px);
+  border-radius:26px;
+  padding:38px 42px;
+  box-shadow:var(--shadow);
+  border:1.5px solid rgba(212,135,10,0.18);
+  margin-bottom:48px;
+}
+
+@media(max-width:760px){
+  .panel{padding:22px 18px;}
+  .form-grid{grid-template-columns:1fr!important;}
+  .header-inner{flex-direction:column;text-align:center;}
+  .nav-pills{justify-content:center;}
+  .header-text h1{font-size:2rem;}
+  .hstat{padding:8px 12px;}
+  .states-grid{grid-template-columns:1fr!important;}
+}
+
+.panel-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.65rem; font-weight:700;
+  color:var(--green-deep);
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:4px;
+}
+
+.panel-desc {
+  color:var(--text-light); font-size:0.92rem;
+  margin-bottom:32px;
+}
+
+/* ══ FORM ══ */
+.form-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:28px; margin-bottom:28px;
+}
+
+.field-group { display:flex; flex-direction:column; gap:10px; }
+
+.field-label {
+  font-size:0.75rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:0.8px;
+  color:var(--green-mid);
+}
+
+.field-gap { margin-top:12px; }
+
+/* ══ TEMP SLIDER ══ */
+.temp-top {
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+
+.temp-val {
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem; font-weight:700; line-height:1;
+  transition:color 0.3s;
+}
+
+.temp-unit { font-size:1rem; color:var(--text-light); margin-bottom:4px; }
+.temp-lbl  { font-size:0.8rem; color:var(--text-light); font-weight:500; }
+
+.slider-track {
+  position:relative; height:14px; border-radius:8px; margin:8px 0 6px;
+  background:linear-gradient(to right,#60a5fa 0%,#34d399 25%,#fbbf24 55%,#f97316 75%,#dc2626 100%);
+}
+
+.slider-track input[type=range] {
+  position:absolute; width:100%; top:50%; transform:translateY(-50%);
+  -webkit-appearance:none; appearance:none;
+  background:transparent; cursor:pointer; margin:0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance:none; appearance:none;
+  width:26px; height:26px; border-radius:50%;
+  background:white; border:3px solid var(--green-deep);
+  box-shadow:0 2px 10px rgba(0,0,0,0.28);
+  cursor:grab; transition:transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.2);}
+
+.temp-ticks {
+  display:flex; justify-content:space-between;
+  font-size:0.7rem; color:var(--text-light); margin-top:2px;
+}
+
+/* ══ SELECT / INPUT ══ */
+select, .txt-input {
+  -webkit-appearance:none; appearance:none;
+  width:100%; padding:12px 16px;
+  border:2px solid rgba(30,92,40,0.22);
+  border-radius:12px;
+  background:white;
+  font-family:'DM Sans',sans-serif; font-size:0.92rem;
+  color:var(--text-dark); cursor:pointer;
+  transition:border-color 0.2s, box-shadow 0.2s;
+}
+
+select {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%231e5c28'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+}
+
+select:focus, .txt-input:focus {
+  outline:none; border-color:var(--green-mid);
+  box-shadow:0 0 0 3px rgba(30,92,40,0.13);
+}
+
+/* ══ ANALYSE BUTTON ══ */
+.btn-analyse {
+  width:100%; padding:16px 32px;
+  background:linear-gradient(135deg, var(--green-mid), var(--green-deep));
+  color:var(--gold); font-family:'DM Sans',sans-serif;
+  font-size:1.05rem; font-weight:600; letter-spacing:0.4px;
+  border:none; border-radius:14px; cursor:pointer;
+  transition:all 0.25s;
+  box-shadow:0 4px 20px rgba(13,38,20,0.35);
+  display:flex; align-items:center; justify-content:center; gap:10px;
+}
+
+.btn-analyse:hover {
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(13,38,20,0.45);
+  background:linear-gradient(135deg, var(--green-light), var(--green-mid));
+}
+
+.spinner {
+  display:none; width:20px; height:20px;
+  border:2.5px solid rgba(255,215,0,0.3);
+  border-top-color:var(--gold);
+  border-radius:50%;
+  animation:spin 0.7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ══ RESULT CARD ══ */
+.result-card {
+  margin-top:28px; border-radius:20px;
+  padding:30px 34px; display:none;
+  animation:slideUp 0.4s ease;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+.result-card.good   { background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:2px solid #4ade80; }
+.result-card.moderate{ background:linear-gradient(135deg,#fffbeb,#fef3c7); border:2px solid #fbbf24; }
+.result-card.bad    { background:linear-gradient(135deg,#fff1f2,#ffe4e6); border:2px solid #fca5a5; }
+
+.verdict-row {
+  display:flex; align-items:center; gap:16px; margin-bottom:20px;
+}
+.verdict-icon { font-size:3rem; line-height:1; }
+.verdict-title {
+  font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:700;
+}
+.result-card.good .verdict-title { color:#14532d; }
+.result-card.moderate .verdict-title { color:#78350f; }
+.result-card.bad .verdict-title { color:#7f1d1d; }
+.verdict-telugu {
+  font-family:'Tiro Telugu',serif; font-size:1rem;
+  opacity:0.65; margin-top:2px;
+}
+
+/* ══ RESULT TABS ══ */
+.rtabs {
+  display:flex; gap:8px; margin-bottom:20px;
+  border-bottom:2px solid rgba(0,0,0,0.08);
+}
+.rtab {
+  padding:8px 18px; font-size:0.85rem; font-weight:600;
+  cursor:pointer; border-radius:8px 8px 0 0;
+  transition:all 0.2s; color:var(--text-light);
+  border-bottom:2px solid transparent; margin-bottom:-2px;
+}
+.rtab.active { color:var(--green-mid); border-bottom-color:var(--green-mid); background:rgba(30,92,40,0.06); }
+
+.rtab-pane { display:none; }
+.rtab-pane.active { display:block; animation:fadeIn 0.25s ease; }
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ══ DETAIL GRID ══ */
+.detail-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+}
+
+.detail-box {
+  background:rgba(255,255,255,0.72); border-radius:14px;
+  padding:14px 16px;
+}
+.detail-box.wide { grid-column:1/-1; }
+.dbox-label {
+  font-size:0.72rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.5px; color:var(--text-light); margin-bottom:6px;
+}
+.dbox-val { font-size:0.92rem; font-weight:600; color:var(--text-dark); }
+
+.score-ring {
+  display:flex; align-items:center; gap:14px;
+}
+
+.score-circle {
+  width:68px; height:68px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700;
+}
+
+.crop-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.ctag {
+  padding:4px 12px; border-radius:50px; font-size:0.78rem; font-weight:600;
+  background:var(--green-mid); color:white;
+}
+.ctag.star { background:var(--amber); color:#5a2d00; }
+.ctag.mkt  { background:#1d4ed8; color:white; }
+
+.analysis-lines { display:flex; flex-direction:column; gap:6px; }
+.aline { font-size:0.87rem; line-height:1.5; }
+
+/* ══ MARKET PRICE TABLE ══ */
+.mkt-table {
+  width:100%; border-collapse:collapse; margin-top:4px; font-size:0.86rem;
+}
+.mkt-table th {
+  text-align:left; padding:8px 12px;
+  background:rgba(30,92,40,0.08); color:var(--green-mid);
+  font-size:0.72rem; text-transform:uppercase; letter-spacing:0.5px;
+}
+.mkt-table td { padding:8px 12px; border-bottom:1px solid rgba(0,0,0,0.06); }
+.mkt-table tr:last-child td { border-bottom:none; }
+.mkt-table tr:hover td { background:rgba(30,92,40,0.04); }
+
+.price-up   { color:#166534; font-weight:700; }
+.price-down { color:#991b1b; font-weight:700; }
+.price-neu  { color:#92400e; font-weight:700; }
+
+.market-note {
+  font-size:0.75rem; color:var(--text-light); margin-top:8px; font-style:italic;
+}
+
+/* ══ RAINFALL CHART ══ */
+.rain-months {
+  display:grid; grid-template-columns:repeat(12,1fr); gap:4px;
+  margin-top:8px;
+}
+.rain-bar-wrap { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.rain-bar-outer {
+  width:100%; height:70px;
+  background:rgba(0,0,0,0.05); border-radius:4px;
+  display:flex; align-items:flex-end; overflow:hidden;
+}
+.rain-bar-fill {
+  width:100%; border-radius:4px 4px 0 0;
+  transition:height 0.6s ease;
+  background:linear-gradient(to top, #0369a1, #38bdf8);
+}
+.rain-month-lbl { font-size:0.65rem; color:var(--text-light); font-weight:600; }
+.rain-mm-lbl    { font-size:0.62rem; color:var(--rain); font-weight:700; }
+
+/* ══ MOISTURE METER ══ */
+.moisture-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:4px; }
+.moisture-item { background:rgba(255,255,255,0.65); border-radius:12px; padding:12px 14px; }
+.moisture-bar-bg {
+  height:10px; border-radius:6px; background:rgba(0,0,0,0.08); margin:6px 0 4px; overflow:hidden;
+}
+.moisture-bar-fill { height:100%; border-radius:6px; transition:width 0.6s; }
+.m-lbl { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.4px; color:var(--text-light); }
+.m-val { font-size:1.1rem; font-weight:700; }
+
+/* ══ DIVIDER ══ */
+.sec-divider {
+  text-align:center; margin:8px 0 44px; position:relative;
+}
+.sec-divider::before {
+  content:''; position:absolute; top:50%; left:0; right:0;
+  height:1px; background:linear-gradient(to right,transparent,rgba(212,135,10,0.35),transparent);
+}
+.div-label {
+  display:inline-block; background:var(--green-deep);
+  padding:8px 26px; border-radius:50px;
+  font-family:'Playfair Display',serif; font-size:1.2rem;
+  color:var(--gold); position:relative; z-index:1;
+  border:1px solid rgba(212,135,10,0.28);
+}
+
+/* ══ SEARCH ══ */
+.search-wrap { position:relative; margin-bottom:20px; }
+.search-wrap input {
+  width:100%; padding:14px 20px 14px 50px;
+  border-radius:14px; border:2px solid rgba(255,255,255,0.18);
+  background:rgba(254,249,237,0.93);
+  font-family:'DM Sans',sans-serif; font-size:0.98rem;
+  color:var(--text-dark); transition:all 0.2s;
+}
+.search-wrap input:focus { outline:none; border-color:var(--amber); box-shadow:0 0 0 3px rgba(212,135,10,0.18); }
+.search-ico { position:absolute; left:18px; top:50%; transform:translateY(-50%); font-size:1.05rem; pointer-events:none; }
+
+/* ══ FILTER TABS ══ */
+.filter-tabs { display:flex; gap:9px; margin-bottom:24px; flex-wrap:wrap; }
+.ftab {
+  padding:7px 17px; border-radius:50px; font-size:0.83rem; font-weight:500;
+  cursor:pointer; transition:all 0.2s;
+  border:1.5px solid rgba(255,255,255,0.22); color:rgba(254,249,237,0.75);
+}
+.ftab:hover,.ftab.active{ background:var(--amber); color:#3a1a00; border-color:var(--amber); }
+
+.cnt { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:700; margin-left:4px; }
+.ftab.active .cnt { background:rgba(58,26,0,0.25); }
+
+/* ══ STATE CARDS ══ */
+.states-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+  gap:20px;
+}
+
+.state-card {
+  background:var(--card-bg); border-radius:20px;
+  padding:22px 24px;
+  box-shadow:0 4px 22px rgba(13,38,20,0.12);
+  border:1.5px solid rgba(255,255,255,0.5);
+}
+.state-card.ut { border-left:4px solid var(--amber); }
+
+.sc-header { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.sc-emoji { font-size:1.9rem; }
+.sc-name { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--green-deep); line-height:1.2; }
+.sc-badge {
+  font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:50px;
+  text-transform:uppercase; letter-spacing:0.4px; display:inline-block; margin-top:2px;
+}
+.sc-badge.state { background:rgba(30,92,40,0.1); color:var(--green-mid); }
+.sc-badge.ut    { background:rgba(212,135,10,0.15); color:#92400e; }
+
+.sc-stats { display:flex; flex-direction:column; gap:9px; }
+.sc-row { display:flex; gap:8px; align-items:flex-start; }
+.sc-row-ico { font-size:0.88rem; margin-top:1px; flex-shrink:0; }
+.sc-row-body { flex:1; }
+.sc-row-key { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--text-light); }
+.sc-row-val { font-size:0.86rem; color:var(--text-dark); font-weight:500; line-height:1.4; }
+
+.tbadge {
+  display:inline-flex; align-items:center; gap:3px;
+  padding:2px 9px; border-radius:50px; font-size:0.8rem; font-weight:600;
+}
+.tbadge.cold { background:#e0f2fe; color:#075985; }
+.tbadge.cool { background:#eff6ff; color:#1e40af; }
+.tbadge.warm { background:#fef9c3; color:#854d0e; }
+.tbadge.hot  { background:#fff1f2; color:#9f1239; }
+
+/* mini rain bar in card */
+.mini-rain-wrap { display:flex; gap:2px; align-items:flex-end; margin-top:4px; }
+.mini-bar {
+  flex:1; border-radius:2px 2px 0 0;
+  background:linear-gradient(to top,#0369a1,#7dd3fc);
+  min-height:2px;
+}
+
+.price-pills { display:flex; flex-wrap:wrap; gap:4px; margin-top:3px; }
+.ppill {
+  font-size:0.73rem; padding:2px 9px; border-radius:50px; font-weight:600;
+  background:#1d4ed8; color:white;
+}
+
+/* ══ SCROLL HINT ══ */
+.scroll-hint { text-align:center; color:rgba(254,249,237,0.4); font-size:0.8rem; margin-bottom:14px; animation:pulse 2.2s ease-in-out infinite; }
+@keyframes pulse{0%,100%{opacity:0.4;}50%{opacity:0.9;}}
+
+/* ══ FOOTER ══ */
+footer {
+  position:relative; z-index:5;
+  text-align:center; padding:20px;
+  color:rgba(254,249,237,0.35); font-size:0.8rem;
+  border-top:1px solid rgba(212,135,10,0.1);
+}
+footer span { color:rgba(240,180,41,0.5); }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-glow"></div>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-icon">🌾</div>
+    </div>
+    <div class="header-text">
+      <h1>రైతే రాజు</h1>
+      <div class="telugu-line" style="font-size:1.18rem;font-weight:700;color:var(--amber-light);letter-spacing:1.2px;margin-top:7px;text-transform:uppercase">🌿 Farmer is the King</div>
+      <div class="eng-line">India's Complete Agricultural Advisory &amp; Market Intelligence Portal</div>
+    </div>
+    <div class="nav-pills">
+      <a href="#advisor" class="nav-pill active">🌾 Crop Advisor</a>
+      <a href="#reference" class="nav-pill outline">📋 State Guide</a>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="hstat"><span class="hstat-icon">🌍</span><div><div class="hstat-label">Coverage</div><div class="hstat-val">36 States & UTs</div></div></div>
+    <div class="hstat"><span class="hstat-icon">🌱</span><div><div class="hstat-label">Crop Database</div><div class="hstat-val">120+ Crops</div></div></div>
+    <div class="hstat"><span class="hstat-icon">💹</span><div><div class="hstat-label">Market Prices</div><div class="hstat-val">MSP + Mandi Rates</div></div></div>
+    <div class="hstat"><span class="hstat-icon">🌧️</span><div><div class="hstat-label">Climate Data</div><div class="hstat-val">Rainfall + Moisture</div></div></div>
+  </div>
+</header>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- ADVISOR -->
+  <section class="panel" id="advisor">
+    <div class="panel-title"><span>🧑‍🌾</span> Crop & Market Analyser</div>
+    <div class="panel-desc">Enter your field conditions for crop suitability, market value outlook, moisture levels and rainfall guidance.</div>
+
+    <div class="form-grid">
+
+      <!-- Temperature -->
+      <div class="field-group">
+        <div class="field-label">🌡️ Current Temperature</div>
+        <div class="temp-top">
+          <div><span class="temp-val" id="tempDisplay">28</span><span class="temp-unit">°C</span></div>
+          <span class="temp-lbl" id="tempLabel">☀️ Warm</span>
+        </div>
+        <div class="slider-track">
+          <input type="range" id="tempSlider" min="0" max="50" value="28" step="1">
+        </div>
+        <div class="temp-ticks">
+          <span>0°<br>❄️</span><span>10°</span><span>20°<br>🌤</span>
+          <span>30°</span><span>40°<br>☀️</span><span>50°<br>🔥</span>
+        </div>
+
+        <div class="field-label field-gap">💧 Soil Moisture Level</div>
+        <select id="moistureSelect">
+          <option value="very_low">Very Low (&lt;20%) – Dry / Drought</option>
+          <option value="low">Low (20–40%) – Needs Irrigation</option>
+          <option value="medium" selected>Medium (40–60%) – Adequate</option>
+          <option value="high">High (60–80%) – Well Moist</option>
+          <option value="very_high">Very High (&gt;80%) – Waterlogged Risk</option>
+        </select>
+      </div>
+
+      <!-- Soil + Crop -->
+      <div class="field-group">
+        <div class="field-label">🪨 Soil Type</div>
+        <select id="soilSelect">
+          <option value="">— Select Soil Type —</option>
+          <option value="alluvial">Alluvial Soil (Indo-Gangetic)</option>
+          <option value="black">Black / Regur Soil (Cotton Soil)</option>
+          <option value="red">Red & Yellow Soil</option>
+          <option value="laterite">Laterite Soil</option>
+          <option value="arid">Arid / Desert Soil</option>
+          <option value="saline">Saline / Alkaline Soil</option>
+          <option value="forest">Forest / Mountain Soil</option>
+          <option value="peaty">Peaty / Marshy Soil</option>
+          <option value="sandy">Sandy / Coastal Soil</option>
+        </select>
+
+        <div class="field-label field-gap">🌱 Crop to Grow</div>
+        <input type="text" class="txt-input" id="cropInput" placeholder="e.g. Wheat, Rice, Cotton…">
+
+        <div class="field-label field-gap">📅 Growing Season</div>
+        <select id="seasonSelect">
+          <option value="kharif">Kharif (June–Nov · Monsoon)</option>
+          <option value="rabi">Rabi (Oct–Mar · Winter)</option>
+          <option value="zaid">Zaid (Mar–Jun · Summer)</option>
+        </select>
+      </div>
+
+      <!-- State + Market -->
+      <div class="field-group">
+        <div class="field-label">📍 State / Union Territory</div>
+        <select id="stateSelect">
+          <option value="">— Select State / UT —</option>
+          <optgroup label="States">
+            <option>Andhra Pradesh</option><option>Arunachal Pradesh</option>
+            <option>Assam</option><option>Bihar</option><option>Chhattisgarh</option>
+            <option>Goa</option><option>Gujarat</option><option>Haryana</option>
+            <option>Himachal Pradesh</option><option>Jharkhand</option>
+            <option>Karnataka</option><option>Kerala</option>
+            <option>Madhya Pradesh</option><option>Maharashtra</option>
+            <option>Manipur</option><option>Meghalaya</option><option>Mizoram</option>
+            <option>Nagaland</option><option>Odisha</option><option>Punjab</option>
+            <option>Rajasthan</option><option>Sikkim</option>
+            <option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option>
+            <option>Uttar Pradesh</option><option>Uttarakhand</option>
+            <option>West Bengal</option>
+          </optgroup>
+          <optgroup label="Union Territories">
+            <option>Andaman & Nicobar Islands</option><option>Chandigarh</option>
+            <option>Dadra & Nagar Haveli</option><option>Delhi</option>
+            <option>Jammu & Kashmir</option><option>Ladakh</option>
+            <option>Lakshadweep</option><option>Puducherry</option>
+          </optgroup>
+        </select>
+
+        <div class="field-label field-gap">🎯 Market Target</div>
+        <select id="marketTarget">
+          <option value="local">Local Mandi (District Market)</option>
+          <option value="state">State Market / APMC</option>
+          <option value="national">National Market (e-NAM)</option>
+          <option value="export">Export Market</option>
+        </select>
+
+        <div class="field-label field-gap">🚜 Farm Size (Acres)</div>
+        <select id="farmSize">
+          <option value="small">Small (&lt;2 acres)</option>
+          <option value="medium" selected>Medium (2–10 acres)</option>
+          <option value="large">Large (10–50 acres)</option>
+          <option value="xlarge">Very Large (&gt;50 acres)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn-analyse" onclick="analyseAll()">
+      <div class="spinner" id="spinner"></div>
+      <span id="btnText">👑 Analyse – రైతు రాజు Recommendation</span>
+    </button>
+
+    <!-- RESULT -->
+    <div class="result-card" id="resultCard">
+      <div class="verdict-row">
+        <div class="verdict-icon" id="verdictIcon">🌟</div>
+        <div>
+          <div class="verdict-title" id="verdictTitle">Excellent!</div>
+          <div class="verdict-telugu" id="verdictTelugu"></div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="rtabs">
+        <div class="rtab active" onclick="switchTab('overview',this)">📊 Overview</div>
+        <div class="rtab" onclick="switchTab('market',this)">💹 Market Value</div>
+        <div class="rtab" onclick="switchTab('climate',this)">🌧️ Climate & Moisture</div>
+        <div class="rtab" onclick="switchTab('tips',this)">💡 Farming Tips</div>
+      </div>
+
+      <div id="tab-overview" class="rtab-pane active"></div>
+      <div id="tab-market" class="rtab-pane"></div>
+      <div id="tab-climate" class="rtab-pane"></div>
+      <div id="tab-tips" class="rtab-pane"></div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="sec-divider" id="reference">
+    <span class="div-label">📋 All India – State & UT Agricultural Reference</span>
+  </div>
+
+  <!-- SEARCH + FILTERS -->
+  <div class="search-wrap">
+    <span class="search-ico">🔍</span>
+    <input type="text" id="stateSearch" placeholder="Search state, crop, soil type, or climate…" oninput="filterCards()">
+  </div>
+
+  <div class="filter-tabs">
+    <div class="ftab active" onclick="setFilter('all',this)">All <span class="cnt">36</span></div>
+    <div class="ftab" onclick="setFilter('state',this)">States <span class="cnt">28</span></div>
+    <div class="ftab" onclick="setFilter('ut',this)">Union Territories <span class="cnt">8</span></div>
+    <div class="ftab" onclick="setFilter('north',this)">North India</div>
+    <div class="ftab" onclick="setFilter('south',this)">South India</div>
+    <div class="ftab" onclick="setFilter('east',this)">East India</div>
+    <div class="ftab" onclick="setFilter('west',this)">West India</div>
+    <div class="ftab" onclick="setFilter('high_rain',this)">🌧️ High Rainfall</div>
+    <div class="ftab" onclick="setFilter('arid_zone',this)">🏜️ Arid Zone</div>
+  </div>
+
+  <div class="scroll-hint">↓ Scroll to explore all states and union territories</div>
+
+  <div class="states-grid" id="statesGrid"></div>
+</main>
+
+<!-- ══ CONTACT SECTION ══ -->
+<section style="position:relative;z-index:5;max-width:1280px;margin:0 auto 0;padding:0 24px 60px">
+  <div style="background:linear-gradient(135deg,rgba(30,92,40,0.85),rgba(13,38,20,0.95));border-radius:24px;padding:40px 48px;border:1.5px solid rgba(212,135,10,0.25);box-shadow:0 8px 40px rgba(0,0,0,0.3);display:flex;align-items:flex-start;gap:40px;flex-wrap:wrap">
+    <div style="flex:1;min-width:240px">
+      <div style="font-family:'Tiro Telugu',serif;font-size:1.05rem;color:var(--amber-light);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🌿 Contact Us</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:8px">Got a question? We're here for every farmer.</div>
+      <div style="font-size:0.9rem;color:rgba(254,249,237,0.6);line-height:1.7">
+        Reach out for crop advice, pricing queries,<br>technical support or partnership ideas.
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;min-width:260px">
+      <a href="mailto:nagamahendram098@gmail.com" style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.07);border-radius:14px;padding:14px 20px;text-decoration:none;border:1px solid rgba(255,255,255,0.12);transition:all 0.2s" onmouseover="this.style.background='rgba(212,135,10,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+        <span style="font-size:1.5rem">📧</span>
+        <div>
+          <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(254,249,237,0.45)">Email Us</div>
+          <div style="font-size:0.95rem;font-weight:600;color:var(--amber-light)">nagamahendram098@gmail.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer style="position:relative;z-index:5;padding:0">
+  <!-- Strong phrase bar -->
+  <div style="background:linear-gradient(90deg,#061509,#0d2614,#061509);border-top:2px solid rgba(212,135,10,0.4);border-bottom:1px solid rgba(212,135,10,0.15);padding:20px 24px;text-align:center">
+    <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--gold);letter-spacing:0.5px;margin-bottom:4px">
+      "The farmer who feeds the world deserves to rule it — రైతే రాజు."
+    </div>
+    <div style="font-size:0.82rem;color:rgba(240,180,41,0.5);letter-spacing:1.5px;text-transform:uppercase">
+      Every seed you sow is an act of courage. Every harvest is your crown.
+    </div>
+  </div>
+  <!-- Credits bar -->
+  <div style="background:#040e07;padding:16px 24px;text-align:center">
+    <div style="color:rgba(254,249,237,0.55);font-size:0.82rem;line-height:2">
+      🌾 Built with deep respect for the hands that feed India &nbsp;|&nbsp;
+      <span style="color:rgba(240,180,41,0.55)">రైతే రాజు</span> — For Farmers, By Farmers &nbsp;|&nbsp;
+      Data: ICAR · eNAM · AGMARKNET · IMD (indicative only)
+    </div>
+    <div style="margin-top:6px;font-size:0.78rem;color:rgba(254,249,237,0.3)">
+      🙏 With deep respect and gratitude to every farmer of India — <em>You are the true kings of this land.</em>
+      &nbsp;·&nbsp; Consult your local <span style="color:rgba(240,180,41,0.45)">Krishi Vigyan Kendra</span> for field-specific guidance.
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════════════════════
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const statesData = [
+  {
+    name:"Andhra Pradesh", type:"state", region:"south", emoji:"🌶️",
+    tempMin:20, tempMax:45, tempClass:"hot", tempRange:"20–45°C",
+    soils:["Red & Yellow Soil","Black Soil","Alluvial Soil"],
+    crops:["Rice","Tobacco","Cotton","Sugarcane","Chillies","Groundnut","Maize","Banana"],
+    rainfall:"900–1100mm", annualRain:1000, climate:"Tropical Hot",
+    rainMonths:[5,10,30,20,15,80,160,150,120,90,30,5],  // mm per month
+    humidity:75, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Rice (Paddy)", mspRs:2183, mandiRs:2100, trend:"up", unit:"per quintal"},
+      {crop:"Cotton", mspRs:6620, mandiRs:6400, trend:"up", unit:"per quintal"},
+      {crop:"Chillies (Dry)", mspRs:null, mandiRs:12000, trend:"up", unit:"per quintal"},
+      {crop:"Groundnut", mspRs:6377, mandiRs:5800, trend:"neutral", unit:"per quintal"},
+      {crop:"Tobacco", mspRs:null, mandiRs:4500, trend:"down", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Arunachal Pradesh", type:"state", region:"east", emoji:"🍃",
+    tempMin:5, tempMax:30, tempClass:"cool", tempRange:"5–30°C",
+    soils:["Red & Yellow Soil","Forest Soil"],
+    crops:["Rice","Maize","Millet","Buckwheat","Cardamom","Ginger","Kiwi"],
+    rainfall:"2000–3000mm", annualRain:2500, climate:"Subtropical Highland",
+    rainMonths:[20,25,60,120,200,350,380,340,200,100,30,10],
+    humidity:85, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Cardamom", mspRs:null, mandiRs:80000, trend:"up", unit:"per quintal"},
+      {crop:"Ginger", mspRs:null, mandiRs:2200, trend:"neutral", unit:"per quintal"},
+      {crop:"Rice", mspRs:2183, mandiRs:1900, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Assam", type:"state", region:"east", emoji:"🍵",
+    tempMin:7, tempMax:35, tempClass:"warm", tempRange:"7–35°C",
+    soils:["Alluvial Soil","Red & Yellow Soil"],
+    crops:["Tea","Rice","Jute","Sugarcane","Mustard","Banana","Pineapple"],
+    rainfall:"1700–3400mm", annualRain:2500, climate:"Humid Subtropical",
+    rainMonths:[10,20,60,150,280,380,420,350,240,120,30,10],
+    humidity:82, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Tea (CTC)", mspRs:null, mandiRs:18000, trend:"up", unit:"per quintal"},
+      {crop:"Rice", mspRs:2183, mandiRs:2000, trend:"up", unit:"per quintal"},
+      {crop:"Jute", mspRs:5050, mandiRs:4800, trend:"neutral", unit:"per quintal"},
+      {crop:"Mustard", mspRs:5650, mandiRs:5200, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Bihar", type:"state", region:"east", emoji:"🌾",
+    tempMin:5, tempMax:42, tempClass:"warm", tempRange:"5–42°C",
+    soils:["Alluvial Soil","Sandy Loam"],
+    crops:["Rice","Wheat","Maize","Sugarcane","Vegetables","Lychee","Potato"],
+    rainfall:"1000–1200mm", annualRain:1100, climate:"Subtropical",
+    rainMonths:[15,10,12,8,15,80,180,200,150,40,10,5],
+    humidity:70, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2100, trend:"up", unit:"per quintal"},
+      {crop:"Maize", mspRs:2090, mandiRs:1950, trend:"neutral", unit:"per quintal"},
+      {crop:"Rice", mspRs:2183, mandiRs:2050, trend:"up", unit:"per quintal"},
+      {crop:"Lychee", mspRs:null, mandiRs:6000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Chhattisgarh", type:"state", region:"east", emoji:"🌿",
+    tempMin:10, tempMax:44, tempClass:"warm", tempRange:"10–44°C",
+    soils:["Red & Yellow Soil","Laterite Soil","Alluvial Soil"],
+    crops:["Rice","Maize","Wheat","Pulses","Oilseeds","Soybean","Tomato"],
+    rainfall:"1200–1600mm", annualRain:1400, climate:"Subtropical",
+    rainMonths:[10,8,12,15,20,100,250,280,180,60,15,5],
+    humidity:68, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Rice (Paddy)", mspRs:2183, mandiRs:2000, trend:"up", unit:"per quintal"},
+      {crop:"Soybean", mspRs:4600, mandiRs:4200, trend:"down", unit:"per quintal"},
+      {crop:"Tomato", mspRs:null, mandiRs:800, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Goa", type:"state", region:"west", emoji:"🥥",
+    tempMin:22, tempMax:35, tempClass:"hot", tempRange:"22–35°C",
+    soils:["Laterite Soil","Alluvial Soil","Coastal Sandy"],
+    crops:["Rice","Coconut","Cashew","Banana","Spices","Jackfruit"],
+    rainfall:"2500–3000mm", annualRain:2800, climate:"Tropical Humid",
+    rainMonths:[2,4,8,15,40,650,900,700,200,80,20,5],
+    humidity:88, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Coconut", mspRs:3750, mandiRs:3500, trend:"up", unit:"per quintal copra"},
+      {crop:"Cashew (Raw)", mspRs:null, mandiRs:8500, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Gujarat", type:"state", region:"west", emoji:"🌱",
+    tempMin:12, tempMax:46, tempClass:"hot", tempRange:"12–46°C",
+    soils:["Black Soil","Alluvial Soil","Arid/Sandy Soil"],
+    crops:["Cotton","Groundnut","Wheat","Bajra","Castor","Tobacco","Sesame","Dates"],
+    rainfall:"400–1900mm", annualRain:800, climate:"Semi-Arid to Arid",
+    rainMonths:[2,3,4,5,8,30,100,120,80,20,5,2],
+    humidity:55, soilMoisture:"Low–Medium",
+    marketPrices:[
+      {crop:"Cotton", mspRs:6620, mandiRs:6700, trend:"up", unit:"per quintal"},
+      {crop:"Groundnut", mspRs:6377, mandiRs:6200, trend:"up", unit:"per quintal"},
+      {crop:"Castor Seeds", mspRs:6645, mandiRs:6500, trend:"neutral", unit:"per quintal"},
+      {crop:"Bajra", mspRs:2500, mandiRs:2300, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Haryana", type:"state", region:"north", emoji:"🌾",
+    tempMin:0, tempMax:45, tempClass:"warm", tempRange:"0–45°C",
+    soils:["Alluvial Soil","Sandy Loam","Light Textured"],
+    crops:["Wheat","Rice","Sugarcane","Cotton","Mustard","Bajra","Sunflower"],
+    rainfall:"300–800mm", annualRain:600, climate:"Semi-Arid Continental",
+    rainMonths:[20,15,12,8,10,30,80,90,50,15,5,10],
+    humidity:58, soilMoisture:"Low–Medium",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2280, trend:"up", unit:"per quintal"},
+      {crop:"Rice (Basmati)", mspRs:null, mandiRs:3800, trend:"up", unit:"per quintal"},
+      {crop:"Mustard", mspRs:5650, mandiRs:5800, trend:"up", unit:"per quintal"},
+      {crop:"Sugarcane", mspRs:340, mandiRs:350, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Himachal Pradesh", type:"state", region:"north", emoji:"🍎",
+    tempMin:-5, tempMax:40, tempClass:"cold", tempRange:"-5–40°C",
+    soils:["Mountain Soil","Forest Soil","Alluvial Soil"],
+    crops:["Apple","Wheat","Maize","Rice","Potato","Peas","Cherries","Kiwi"],
+    rainfall:"600–3000mm", annualRain:1500, climate:"Temperate Alpine",
+    rainMonths:[70,65,70,45,50,80,120,100,60,30,20,50],
+    humidity:65, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Apple", mspRs:null, mandiRs:3500, trend:"up", unit:"per quintal"},
+      {crop:"Potato", mspRs:null, mandiRs:1200, trend:"neutral", unit:"per quintal"},
+      {crop:"Wheat", mspRs:2275, mandiRs:2100, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Jharkhand", type:"state", region:"east", emoji:"🌿",
+    tempMin:8, tempMax:42, tempClass:"warm", tempRange:"8–42°C",
+    soils:["Red & Laterite Soil","Sandy Loam"],
+    crops:["Rice","Maize","Wheat","Pulses","Vegetables","Mustard","Lac"],
+    rainfall:"1200–1400mm", annualRain:1300, climate:"Subtropical",
+    rainMonths:[10,12,15,10,20,100,250,280,150,40,10,5],
+    humidity:65, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Rice (Paddy)", mspRs:2183, mandiRs:1950, trend:"up", unit:"per quintal"},
+      {crop:"Maize", mspRs:2090, mandiRs:1800, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Karnataka", type:"state", region:"south", emoji:"☕",
+    tempMin:15, tempMax:38, tempClass:"warm", tempRange:"15–38°C",
+    soils:["Red Soil","Black Soil","Laterite Soil","Coastal Alluvial"],
+    crops:["Coffee","Sugarcane","Cotton","Rice","Ragi","Jowar","Silk","Coconut","Pomegranate"],
+    rainfall:"600–3500mm", annualRain:1500, climate:"Tropical to Semi-Arid",
+    rainMonths:[4,8,15,30,70,120,150,120,150,100,30,10],
+    humidity:72, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Coffee (Arabica)", mspRs:null, mandiRs:25000, trend:"up", unit:"per quintal"},
+      {crop:"Sugarcane", mspRs:340, mandiRs:350, trend:"neutral", unit:"per quintal"},
+      {crop:"Ragi (Finger Millet)", mspRs:3846, mandiRs:3600, trend:"up", unit:"per quintal"},
+      {crop:"Silk (Cocoons)", mspRs:null, mandiRs:45000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Kerala", type:"state", region:"south", emoji:"🌴",
+    tempMin:20, tempMax:38, tempClass:"hot", tempRange:"20–38°C",
+    soils:["Laterite Soil","Alluvial Soil","Coastal Sandy"],
+    crops:["Rice","Coconut","Rubber","Spices","Tea","Coffee","Banana","Pepper"],
+    rainfall:"2000–3000mm", annualRain:2900, climate:"Tropical Humid",
+    rainMonths:[25,30,50,120,350,700,750,450,250,350,200,50],
+    humidity:90, soilMoisture:"Very High",
+    marketPrices:[
+      {crop:"Coconut (Copra)", mspRs:10860, mandiRs:9500, trend:"up", unit:"per quintal"},
+      {crop:"Rubber (RSS4)", mspRs:null, mandiRs:17000, trend:"up", unit:"per quintal"},
+      {crop:"Black Pepper", mspRs:null, mandiRs:60000, trend:"up", unit:"per quintal"},
+      {crop:"Cardamom", mspRs:null, mandiRs:130000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Madhya Pradesh", type:"state", region:"north", emoji:"🌾",
+    tempMin:5, tempMax:44, tempClass:"warm", tempRange:"5–44°C",
+    soils:["Black Soil","Red & Yellow Soil","Alluvial Soil"],
+    crops:["Wheat","Soybean","Cotton","Maize","Pulses","Oilseeds","Garlic","Onion"],
+    rainfall:"800–1200mm", annualRain:1000, climate:"Subtropical",
+    rainMonths:[12,8,10,8,10,80,250,280,160,40,10,5],
+    humidity:60, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2300, trend:"up", unit:"per quintal"},
+      {crop:"Soybean", mspRs:4600, mandiRs:4400, trend:"neutral", unit:"per quintal"},
+      {crop:"Garlic", mspRs:null, mandiRs:3000, trend:"up", unit:"per quintal"},
+      {crop:"Cotton", mspRs:6620, mandiRs:6500, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Maharashtra", type:"state", region:"west", emoji:"🍇",
+    tempMin:12, tempMax:43, tempClass:"warm", tempRange:"12–43°C",
+    soils:["Black Soil (Deccan)","Laterite","Alluvial"],
+    crops:["Cotton","Sugarcane","Soybean","Jowar","Grapes","Onion","Pomegranate","Oranges"],
+    rainfall:"400–6000mm", annualRain:1200, climate:"Tropical to Semi-Arid",
+    rainMonths:[3,5,8,10,12,120,200,180,120,50,10,4],
+    humidity:65, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Onion", mspRs:null, mandiRs:1500, trend:"up", unit:"per quintal"},
+      {crop:"Cotton", mspRs:6620, mandiRs:6800, trend:"up", unit:"per quintal"},
+      {crop:"Grapes (Export)", mspRs:null, mandiRs:8000, trend:"up", unit:"per quintal"},
+      {crop:"Pomegranate", mspRs:null, mandiRs:5000, trend:"neutral", unit:"per quintal"},
+      {crop:"Sugarcane", mspRs:340, mandiRs:355, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Manipur", type:"state", region:"east", emoji:"🌺",
+    tempMin:0, tempMax:34, tempClass:"cool", tempRange:"0–34°C",
+    soils:["Red & Yellow Soil","Alluvial (Valley)"],
+    crops:["Rice","Maize","Vegetables","Ginger","Turmeric","Mustard","Black Rice"],
+    rainfall:"1200–1800mm", annualRain:1500, climate:"Humid Subtropical",
+    rainMonths:[15,18,40,80,150,200,250,220,150,80,30,10],
+    humidity:78, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Black Rice (Chak-hao)", mspRs:null, mandiRs:20000, trend:"up", unit:"per quintal"},
+      {crop:"Ginger", mspRs:null, mandiRs:3000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Meghalaya", type:"state", region:"east", emoji:"🌧️",
+    tempMin:4, tempMax:28, tempClass:"cold", tempRange:"4–28°C",
+    soils:["Red & Yellow Soil","Forest Soil"],
+    crops:["Rice","Maize","Potatoes","Ginger","Turmeric","Black Pepper","Areca Nut"],
+    rainfall:"2000–12000mm", annualRain:8000, climate:"Subtropical Highland – Wettest Region",
+    rainMonths:[30,40,100,300,600,1500,2500,2000,800,200,50,20],
+    humidity:92, soilMoisture:"Very High",
+    marketPrices:[
+      {crop:"Ginger (Fresh)", mspRs:null, mandiRs:2800, trend:"up", unit:"per quintal"},
+      {crop:"Potato", mspRs:null, mandiRs:1100, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Mizoram", type:"state", region:"east", emoji:"🌿",
+    tempMin:8, tempMax:30, tempClass:"cool", tempRange:"8–30°C",
+    soils:["Forest Soil","Red & Yellow Soil"],
+    crops:["Rice","Maize","Ginger","Turmeric","Fruits","Vegetables","Bird Eye Chilli"],
+    rainfall:"2000–3500mm", annualRain:2800, climate:"Subtropical",
+    rainMonths:[10,20,50,120,250,380,430,380,250,100,30,10],
+    humidity:82, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Bird Eye Chilli", mspRs:null, mandiRs:35000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Nagaland", type:"state", region:"east", emoji:"🌾",
+    tempMin:5, tempMax:33, tempClass:"cool", tempRange:"5–33°C",
+    soils:["Red & Yellow Soil","Forest Soil"],
+    crops:["Rice","Maize","Millet","Sugarcane","Ginger","Peas","King Chilli (Bhut Jolokia)"],
+    rainfall:"1500–2500mm", annualRain:2000, climate:"Subtropical",
+    rainMonths:[15,20,50,100,200,300,380,350,200,100,30,10],
+    humidity:80, soilMoisture:"High",
+    marketPrices:[
+      {crop:"King Chilli (Bhut Jolokia)", mspRs:null, mandiRs:200000, trend:"up", unit:"per quintal"},
+      {crop:"Ginger", mspRs:null, mandiRs:2500, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Odisha", type:"state", region:"east", emoji:"🌊",
+    tempMin:10, tempMax:42, tempClass:"warm", tempRange:"10–42°C",
+    soils:["Red & Yellow Soil","Alluvial Soil","Laterite"],
+    crops:["Rice","Pulses","Oilseeds","Jute","Coconut","Sugarcane","Turmeric"],
+    rainfall:"1200–1800mm", annualRain:1500, climate:"Tropical Humid",
+    rainMonths:[10,12,15,20,30,150,280,300,200,80,20,8],
+    humidity:74, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Rice (Paddy)", mspRs:2183, mandiRs:2050, trend:"up", unit:"per quintal"},
+      {crop:"Turmeric", mspRs:null, mandiRs:7000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Punjab", type:"state", region:"north", emoji:"🌾",
+    tempMin:0, tempMax:44, tempClass:"warm", tempRange:"0–44°C",
+    soils:["Alluvial Soil","Sandy Loam","Light Textured"],
+    crops:["Wheat","Rice","Cotton","Sugarcane","Maize","Pulses","Potato"],
+    rainfall:"300–900mm", annualRain:650, climate:"Semi-Arid Continental",
+    rainMonths:[25,20,18,10,12,30,80,95,50,12,8,15],
+    humidity:55, soilMoisture:"Low (Irrigation Dependent)",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2320, trend:"up", unit:"per quintal"},
+      {crop:"Rice (Non-Basmati)", mspRs:2183, mandiRs:2200, trend:"up", unit:"per quintal"},
+      {crop:"Cotton", mspRs:6620, mandiRs:6550, trend:"neutral", unit:"per quintal"},
+      {crop:"Potato (Seed)", mspRs:null, mandiRs:2000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Rajasthan", type:"state", region:"north", emoji:"🏜️",
+    tempMin:0, tempMax:50, tempClass:"hot", tempRange:"0–50°C",
+    soils:["Arid/Sandy Soil","Black Soil (East)","Alluvial (North)"],
+    crops:["Bajra","Jowar","Wheat","Mustard","Groundnut","Cotton","Cluster Bean","Cumin"],
+    rainfall:"100–600mm", annualRain:350, climate:"Arid to Semi-Arid",
+    rainMonths:[4,5,5,4,5,15,50,70,40,10,3,2],
+    humidity:35, soilMoisture:"Very Low–Low",
+    marketPrices:[
+      {crop:"Cumin (Jeera)", mspRs:null, mandiRs:35000, trend:"up", unit:"per quintal"},
+      {crop:"Mustard", mspRs:5650, mandiRs:5800, trend:"up", unit:"per quintal"},
+      {crop:"Bajra", mspRs:2500, mandiRs:2400, trend:"neutral", unit:"per quintal"},
+      {crop:"Cluster Bean (Guar)", mspRs:null, mandiRs:5500, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Sikkim", type:"state", region:"east", emoji:"🫛",
+    tempMin:-5, tempMax:28, tempClass:"cold", tempRange:"-5–28°C",
+    soils:["Forest Soil","Mountain Soil"],
+    crops:["Cardamom","Ginger","Tea","Orange","Potato","Large Cardamom","Buckwheat"],
+    rainfall:"1500–5000mm", annualRain:3000, climate:"Temperate Alpine – Organic State",
+    rainMonths:[20,30,60,120,200,350,480,420,300,100,30,15],
+    humidity:80, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Large Cardamom", mspRs:null, mandiRs:180000, trend:"up", unit:"per quintal"},
+      {crop:"Organic Ginger", mspRs:null, mandiRs:6000, trend:"up", unit:"per quintal"},
+      {crop:"Organic Tea", mspRs:null, mandiRs:25000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Tamil Nadu", type:"state", region:"south", emoji:"🌾",
+    tempMin:18, tempMax:42, tempClass:"hot", tempRange:"18–42°C",
+    soils:["Red Sandy Soil","Black Soil","Alluvial Soil","Laterite"],
+    crops:["Rice","Sugarcane","Cotton","Banana","Groundnut","Coconut","Mango","Turmeric"],
+    rainfall:"850–1100mm", annualRain:1000, climate:"Tropical (NE Monsoon)",
+    rainMonths:[30,20,15,10,20,30,60,50,80,180,200,100],
+    humidity:72, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Rice (Sona Masuri)", mspRs:2183, mandiRs:2400, trend:"up", unit:"per quintal"},
+      {crop:"Banana (Robusta)", mspRs:null, mandiRs:1200, trend:"neutral", unit:"per quintal"},
+      {crop:"Groundnut", mspRs:6377, mandiRs:6000, trend:"up", unit:"per quintal"},
+      {crop:"Coconut", mspRs:3750, mandiRs:2800, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Telangana", type:"state", region:"south", emoji:"🌶️",
+    tempMin:14, tempMax:44, tempClass:"hot", tempRange:"14–44°C",
+    soils:["Red Soil","Black (Cotton) Soil","Alluvial"],
+    crops:["Rice","Cotton","Maize","Soybean","Chillies","Turmeric","Sugarcane","Mango"],
+    rainfall:"700–1100mm", annualRain:900, climate:"Tropical Semi-Arid",
+    rainMonths:[5,8,10,10,12,70,150,170,120,80,20,8],
+    humidity:68, soilMoisture:"Low–Medium",
+    marketPrices:[
+      {crop:"Rice (Paddy)", mspRs:2183, mandiRs:2200, trend:"up", unit:"per quintal"},
+      {crop:"Cotton", mspRs:6620, mandiRs:6700, trend:"up", unit:"per quintal"},
+      {crop:"Chillies (Teja)", mspRs:null, mandiRs:15000, trend:"up", unit:"per quintal"},
+      {crop:"Turmeric (Nizamabad)", mspRs:null, mandiRs:10000, trend:"up", unit:"per quintal"},
+      {crop:"Maize", mspRs:2090, mandiRs:2000, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Tripura", type:"state", region:"east", emoji:"🍍",
+    tempMin:10, tempMax:35, tempClass:"warm", tempRange:"10–35°C",
+    soils:["Red & Laterite Soil","Alluvial Soil"],
+    crops:["Rice","Jute","Tea","Rubber","Pineapple","Vegetables","Queen Pineapple"],
+    rainfall:"2000–2500mm", annualRain:2200, climate:"Tropical Humid",
+    rainMonths:[12,20,50,100,200,350,420,380,250,100,30,12],
+    humidity:82, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Pineapple (Queen)", mspRs:null, mandiRs:2500, trend:"up", unit:"per quintal"},
+      {crop:"Rubber", mspRs:null, mandiRs:16000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Uttar Pradesh", type:"state", region:"north", emoji:"🌿",
+    tempMin:2, tempMax:45, tempClass:"warm", tempRange:"2–45°C",
+    soils:["Alluvial Soil","Black Soil (South)","Sandy Loam"],
+    crops:["Wheat","Rice","Sugarcane","Potato","Mustard","Pulses","Maize","Mentha"],
+    rainfall:"600–1000mm", annualRain:800, climate:"Subtropical",
+    rainMonths:[15,12,10,8,10,60,180,210,120,30,8,10],
+    humidity:62, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2200, trend:"up", unit:"per quintal"},
+      {crop:"Sugarcane", mspRs:340, mandiRs:345, trend:"neutral", unit:"per quintal"},
+      {crop:"Potato", mspRs:null, mandiRs:900, trend:"down", unit:"per quintal"},
+      {crop:"Mentha Oil", mspRs:null, mandiRs:1200, trend:"up", unit:"per litre"},
+      {crop:"Mustard", mspRs:5650, mandiRs:5700, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Uttarakhand", type:"state", region:"north", emoji:"🏔️",
+    tempMin:-10, tempMax:40, tempClass:"cold", tempRange:"-10–40°C",
+    soils:["Mountain Soil","Forest Soil","Alluvial (Terai)"],
+    crops:["Wheat","Rice","Soybean","Apple","Pear","Potato","Pulses","Mandarin"],
+    rainfall:"1200–3000mm", annualRain:1800, climate:"Temperate to Alpine",
+    rainMonths:[50,55,55,40,55,120,200,180,100,40,20,40],
+    humidity:68, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Basmati Rice", mspRs:null, mandiRs:4000, trend:"up", unit:"per quintal"},
+      {crop:"Apple", mspRs:null, mandiRs:3000, trend:"neutral", unit:"per quintal"},
+      {crop:"Mandarin Orange", mspRs:null, mandiRs:2500, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"West Bengal", type:"state", region:"east", emoji:"🌺",
+    tempMin:8, tempMax:40, tempClass:"warm", tempRange:"8–40°C",
+    soils:["Alluvial Soil","Laterite","Red Soil (West)"],
+    crops:["Rice","Jute","Tea (Darjeeling)","Potato","Wheat","Vegetables","Mustard"],
+    rainfall:"1400–3000mm", annualRain:1750, climate:"Tropical Humid",
+    rainMonths:[15,20,40,60,120,280,380,350,250,120,30,10],
+    humidity:80, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Jute (Raw)", mspRs:5050, mandiRs:4900, trend:"up", unit:"per quintal"},
+      {crop:"Darjeeling Tea", mspRs:null, mandiRs:35000, trend:"up", unit:"per quintal"},
+      {crop:"Potato", mspRs:null, mandiRs:1000, trend:"neutral", unit:"per quintal"},
+      {crop:"Rice (Gobindo Bhog)", mspRs:null, mandiRs:8000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  // UNION TERRITORIES
+  {
+    name:"Andaman & Nicobar Islands", type:"ut", region:"east", emoji:"🏝️",
+    tempMin:22, tempMax:32, tempClass:"hot", tempRange:"22–32°C",
+    soils:["Forest Soil","Coastal Sandy Soil","Laterite"],
+    crops:["Rice","Coconut","Spices","Tropical Fruits","Arecanut"],
+    rainfall:"2500–3000mm", annualRain:2900, climate:"Tropical Island",
+    rainMonths:[20,15,25,100,250,450,500,420,280,200,100,40],
+    humidity:88, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Coconut", mspRs:3750, mandiRs:3200, trend:"neutral", unit:"per quintal copra"}
+    ]
+  },
+  {
+    name:"Chandigarh", type:"ut", region:"north", emoji:"🌳",
+    tempMin:2, tempMax:44, tempClass:"warm", tempRange:"2–44°C",
+    soils:["Alluvial Soil","Sandy Loam"],
+    crops:["Wheat","Vegetables","Flowers","Maize"],
+    rainfall:"600–800mm", annualRain:700, climate:"Semi-Arid",
+    rainMonths:[20,18,15,10,12,35,85,95,50,12,8,12],
+    humidity:58, soilMoisture:"Low–Medium",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2300, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Dadra & Nagar Haveli", type:"ut", region:"west", emoji:"🌿",
+    tempMin:16, tempMax:40, tempClass:"warm", tempRange:"16–40°C",
+    soils:["Red & Laterite Soil","Alluvial Soil"],
+    crops:["Rice","Wheat","Sugarcane","Vegetables","Fruits"],
+    rainfall:"2000–2500mm", annualRain:2200, climate:"Tropical",
+    rainMonths:[5,8,10,15,20,200,550,500,200,50,15,5],
+    humidity:78, soilMoisture:"High",
+    marketPrices:[
+      {crop:"Rice", mspRs:2183, mandiRs:1900, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Delhi", type:"ut", region:"north", emoji:"🌆",
+    tempMin:1, tempMax:45, tempClass:"warm", tempRange:"1–45°C",
+    soils:["Alluvial Soil","Sandy Loam","Saline Soil"],
+    crops:["Wheat","Vegetables","Flowers","Fodder Crops"],
+    rainfall:"400–600mm", annualRain:500, climate:"Semi-Arid",
+    rainMonths:[15,12,10,5,8,25,70,80,40,8,5,10],
+    humidity:52, soilMoisture:"Low",
+    marketPrices:[
+      {crop:"Wheat", mspRs:2275, mandiRs:2350, trend:"up", unit:"per quintal"},
+      {crop:"Vegetables (Mixed)", mspRs:null, mandiRs:2500, trend:"neutral", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Jammu & Kashmir", type:"ut", region:"north", emoji:"🏔️",
+    tempMin:-10, tempMax:38, tempClass:"cold", tempRange:"-10–38°C",
+    soils:["Mountain Soil","Alluvial Soil","Forest Soil"],
+    crops:["Apple","Saffron","Wheat","Rice","Walnut","Cherry","Pear","Almond"],
+    rainfall:"500–2000mm", annualRain:1200, climate:"Temperate to Alpine",
+    rainMonths:[70,65,75,50,50,40,50,55,40,30,30,55],
+    humidity:62, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Saffron (Kashmiri)", mspRs:null, mandiRs:3000000, trend:"up", unit:"per quintal"},
+      {crop:"Apple (Delicious)", mspRs:null, mandiRs:4500, trend:"up", unit:"per quintal"},
+      {crop:"Walnut (Inshell)", mspRs:null, mandiRs:18000, trend:"up", unit:"per quintal"},
+      {crop:"Cherry", mspRs:null, mandiRs:12000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Ladakh", type:"ut", region:"north", emoji:"🏞️",
+    tempMin:-30, tempMax:30, tempClass:"cold", tempRange:"-30–30°C",
+    soils:["Sandy/Rocky Soil","Mountain Soil"],
+    crops:["Barley","Wheat","Buckwheat","Peas","Apricot","Sea Buckthorn"],
+    rainfall:"50–200mm", annualRain:100, climate:"Cold Arid Desert",
+    rainMonths:[5,5,8,8,10,12,15,12,10,8,5,5],
+    humidity:25, soilMoisture:"Very Low",
+    marketPrices:[
+      {crop:"Sea Buckthorn Juice", mspRs:null, mandiRs:35000, trend:"up", unit:"per quintal"},
+      {crop:"Apricot (Dried)", mspRs:null, mandiRs:15000, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Lakshadweep", type:"ut", region:"west", emoji:"🌊",
+    tempMin:24, tempMax:33, tempClass:"hot", tempRange:"24–33°C",
+    soils:["Sandy/Coral Soil","Coastal Sandy"],
+    crops:["Coconut","Vegetables","Banana","Breadfruit"],
+    rainfall:"1400–1800mm", annualRain:1600, climate:"Tropical Maritime",
+    rainMonths:[30,20,25,50,150,400,450,380,200,100,60,30],
+    humidity:85, soilMoisture:"Medium–High",
+    marketPrices:[
+      {crop:"Coconut (Copra)", mspRs:10860, mandiRs:8500, trend:"up", unit:"per quintal"}
+    ]
+  },
+  {
+    name:"Puducherry", type:"ut", region:"south", emoji:"🌸",
+    tempMin:20, tempMax:38, tempClass:"hot", tempRange:"20–38°C",
+    soils:["Alluvial Soil","Red Soil","Sandy Coastal"],
+    crops:["Rice","Sugarcane","Cotton","Groundnut","Vegetables","Mango"],
+    rainfall:"1000–1200mm", annualRain:1100, climate:"Tropical (NE Monsoon)",
+    rainMonths:[30,15,12,8,15,35,60,55,70,200,250,100],
+    humidity:74, soilMoisture:"Medium",
+    marketPrices:[
+      {crop:"Rice", mspRs:2183, mandiRs:2100, trend:"up", unit:"per quintal"},
+      {crop:"Groundnut", mspRs:6377, mandiRs:5900, trend:"up", unit:"per quintal"}
+    ]
+  }
+];
+
+// ══ SOIL → CROP MAP ════════════════════════════════════════════════════════
+const soilMap = {
+  alluvial: { crops:["Wheat","Rice","Sugarcane","Maize","Pulses","Cotton","Jute","Mustard"], seasons:["kharif","rabi"], moisture:"Medium–High" },
+  black:    { crops:["Cotton","Soybean","Jowar","Wheat","Sugarcane","Sunflower"], seasons:["kharif","rabi"], moisture:"High (Moisture Retentive)" },
+  red:      { crops:["Rice","Maize","Groundnut","Pulses","Tobacco","Ragi","Millets"], seasons:["kharif"], moisture:"Low–Medium" },
+  laterite: { crops:["Tea","Coffee","Coconut","Cashew","Rubber","Tapioca"], seasons:["kharif"], moisture:"Low (Leached)" },
+  arid:     { crops:["Bajra","Jowar","Cluster Bean","Mustard","Sesame","Castor","Cumin"], seasons:["kharif","rabi"], moisture:"Very Low" },
+  saline:   { crops:["Paddy (Salt-Tolerant)","Barley","Halophytes","Coconut"], seasons:["rabi"], moisture:"Variable" },
+  forest:   { crops:["Cardamom","Ginger","Turmeric","Coffee","Tea","Spices","Medicinals"], seasons:["kharif"], moisture:"High" },
+  peaty:    { crops:["Rice","Jute","Coconut","Sugarcane"], seasons:["kharif"], moisture:"Very High (Marshy)" },
+  sandy:    { crops:["Coconut","Banana","Vegetables","Cashew","Groundnut","Sweet Potato"], seasons:["kharif","zaid"], moisture:"Low (Drains Fast)" }
+};
+
+// ══ MARKET TREND LOOKUP ════════════════════════════════════════════════════
+const globalMarket = {
+  "Wheat":  {spot:2280, futures:2400, demand:"High", export:"Moderate"},
+  "Rice":   {spot:2200, futures:2350, demand:"Very High", export:"High"},
+  "Cotton": {spot:6700, futures:7000, demand:"High", export:"High"},
+  "Soybean":{spot:4300, futures:4500, demand:"High", export:"Low"},
+  "Mustard":{spot:5750, futures:6000, demand:"Very High", export:"Moderate"},
+  "Maize":  {spot:1950, futures:2100, demand:"High", export:"Moderate"},
+  "Onion":  {spot:1500, futures:null, demand:"Volatile", export:"Seasonal"},
+  "Potato": {spot:900,  futures:null, demand:"Medium", export:"Low"},
+  "Sugarcane":{spot:350, futures:null, demand:"Stable", export:"via FRP"},
+  "Coffee": {spot:22000,futures:25000,demand:"Rising", export:"High"},
+  "Tea":    {spot:18000,futures:null, demand:"Stable", export:"High"},
+  "Rubber": {spot:17000,futures:18000,demand:"High", export:"High"}
+};
+
+// ══ MOISTURE DATA ═══════════════════════════════════════════════════════════
+const moistureData = {
+  very_low:  { label:"Very Low", pct:15, color:"#dc2626", note:"Severe drought conditions. Irrigation mandatory. Choose drought-resistant crops.", crops:["Bajra","Jowar","Sorghum","Cumin","Castor"] },
+  low:       { label:"Low",      pct:30, color:"#f97316", note:"Dry conditions. Drip/sprinkler irrigation strongly recommended.", crops:["Wheat","Mustard","Barley","Sunflower","Pulses"] },
+  medium:    { label:"Medium",   pct:50, color:"#eab308", note:"Adequate moisture for most crops. Monitor regularly.", crops:["Rice","Maize","Cotton","Soybean","Vegetables"] },
+  high:      { label:"High",     pct:70, color:"#22c55e", note:"Ideal for water-intensive crops. Good yields expected.", crops:["Rice","Sugarcane","Jute","Banana","Tea"] },
+  very_high: { label:"Very High",pct:88, color:"#0891b2", note:"Waterlogging risk. Ensure drainage. Suitable for paddy & aquatic crops.", crops:["Paddy","Lotus","Water Chestnut","Taro","Jute"] }
+};
+
+// ══ TEMP SLIDER ═════════════════════════════════════════════════════════════
+const slider = document.getElementById('tempSlider');
+const tempDisp = document.getElementById('tempDisplay');
+const tempLbl  = document.getElementById('tempLabel');
+
+const tempColors = v => v<=8?'#60a5fa':v<=18?'#34d399':v<=28?'#eab308':v<=38?'#f97316':'#dc2626';
+const tempLabels = v => v<=5?'❄️ Freezing':v<=15?'🧊 Cold':v<=22?'🌤️ Cool':v<=30?'☀️ Warm':v<=38?'🌡️ Hot':'🔥 Extreme';
+
+slider.addEventListener('input',()=>{
+  const v=parseInt(slider.value);
+  tempDisp.textContent=v;
+  tempDisp.style.color=tempColors(v);
+  tempLbl.textContent=tempLabels(v);
+});
+
+// ══ SWITCH TABS ═════════════════════════════════════════════════════════════
+function switchTab(id, el) {
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.rtab-pane').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+
+// ══ ANALYSE ═════════════════════════════════════════════════════════════════
+function analyseAll() {
+  const soil     = document.getElementById('soilSelect').value;
+  const state    = document.getElementById('stateSelect').value;
+  if (!soil || !state) { alert('Please select Soil Type and State/UT to continue.'); return; }
+
+  const btn=document.querySelector('.btn-analyse');
+  const sp=document.getElementById('spinner');
+  const bt=document.getElementById('btnText');
+  sp.style.display='block'; bt.textContent='Analysing…'; btn.disabled=true;
+
+  setTimeout(()=>{
+    sp.style.display='none'; bt.textContent='👑 Analyse – రైతు రాజు Recommendation'; btn.disabled=false;
+    buildResult();
+  }, 850);
+}
+
+function buildResult() {
+  const temp    = parseInt(document.getElementById('tempSlider').value);
+  const soil    = document.getElementById('soilSelect').value;
+  const state   = document.getElementById('stateSelect').value;
+  const crop    = document.getElementById('cropInput').value.trim();
+  const season  = document.getElementById('seasonSelect').value;
+  const moist   = document.getElementById('moistureSelect').value;
+  const mktTgt  = document.getElementById('marketTarget').value;
+  const farm    = document.getElementById('farmSize').value;
+
+  const sd  = statesData.find(s=>s.name===state);
+  const so  = soilMap[soil] || {};
+  const mo  = moistureData[moist];
+  const card= document.getElementById('resultCard');
+
+  // Score
+  let score=0, msgs=[], warns=[];
+  const tempOk = temp>=sd.tempMin && temp<=sd.tempMax;
+  if (tempOk){ score+=30; msgs.push(`✅ Temperature ${temp}°C is within ${state}'s range (${sd.tempRange})`); }
+  else { score+=8; warns.push(`⚠️ Temperature ${temp}°C is outside typical range ${sd.tempRange} for ${state}`); }
+
+  const soilOk = sd.soils.some(s=>s.toLowerCase().includes(soil)||soil.includes(s.toLowerCase().split(' ')[0]));
+  if (soilOk){ score+=30; msgs.push(`✅ ${soil} soil is typical for ${state}`); }
+  else { score+=10; warns.push(`⚠️ ${soil} soil is not the dominant type in ${state} — ${sd.soils[0]} is more common`); }
+
+  if (so.seasons && so.seasons.includes(season)){ score+=20; msgs.push(`✅ ${season} season is ideal for ${soil} soil`); }
+  else { score+=6; warns.push(`⚠️ Growing season may not fully align with this soil type`); }
+
+  const goodMoisture = ['medium','high'].includes(moist);
+  if (goodMoisture){ score+=10; msgs.push(`✅ Moisture level is adequate`); }
+  else if (moist==='very_high'){ score+=6; warns.push(`⚠️ Waterlogging risk — ensure proper drainage channels`); }
+  else { warns.push(`💧 Low moisture — irrigation system essential for good yield`); score+=3; }
+
+  let cropHit=false;
+  if(crop){
+    const allCrops=[...sd.crops,...(so.crops||[])];
+    cropHit=allCrops.some(c=>c.toLowerCase().includes(crop.toLowerCase())||crop.toLowerCase().includes(c.toLowerCase()));
+    if(cropHit){ score+=10; msgs.push(`✅ "${crop}" is well-suited to ${state} conditions`); }
+    else { warns.push(`💡 "${crop}" is non-traditional here — consider: ${sd.crops.slice(0,3).join(', ')}`); }
+  }
+
+  // Verdict
+  let cls, icon, title, tel;
+  if(score>=70){ cls='good'; icon='🌟'; title='Excellent Conditions!'; tel='మంచి పంట – మీరు రైతు రాజు!'; }
+  else if(score>=45){ cls='moderate'; icon='⚠️'; title='Moderate Conditions'; tel='జాగ్రత్తగా సాగు చేయండి'; }
+  else { cls='bad'; icon='🔴'; title='Challenging – Needs Attention'; tel='జాతీయ సలహాదారులను సంప్రదించండి'; }
+
+  card.className=`result-card ${cls}`;
+  document.getElementById('verdictIcon').textContent=icon;
+  document.getElementById('verdictTitle').textContent=title;
+  document.getElementById('verdictTelugu').textContent=tel;
+
+  const recCrops = (so.crops||[]).filter(c=>sd.crops.includes(c));
+  const disCrops = recCrops.length>0 ? recCrops : sd.crops;
+
+  // ── TAB: OVERVIEW ─────────────────────────────────────────────────────────
+  const circleColor = score>=70?'#14532d':score>=45?'#78350f':'#7f1d1d';
+  document.getElementById('tab-overview').innerHTML=`
+    <div class="detail-grid">
+      <div class="detail-box">
+        <div class="dbox-label">📊 Suitability Score</div>
+        <div class="score-ring">
+          <div class="score-circle" style="background:${circleColor}22; color:${circleColor}; border:3px solid ${circleColor}">${score}</div>
+          <div style="font-size:0.85rem; color:var(--text-light)">out of<br><strong style="color:${circleColor};font-size:1.1rem">100 pts</strong></div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">🌡️ Climate</div>
+        <div class="dbox-val">${sd.climate}</div>
+        <div style="font-size:0.8rem;color:var(--text-light);margin-top:4px">Annual Rain: ${sd.rainfall}</div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">💧 Moisture Soil</div>
+        <div class="dbox-val" style="color:${mo.color}">${mo.label} (${mo.pct}%)</div>
+        <div class="moisture-bar-bg"><div class="moisture-bar-fill" style="width:${mo.pct}%;background:${mo.color}"></div></div>
+      </div>
+      <div class="detail-box wide">
+        <div class="dbox-label">🌱 Best Crops for Your Conditions</div>
+        <div class="crop-tags">
+          ${disCrops.slice(0,6).map((c,i)=>`<span class="ctag${i===0?' star':''}">${c}</span>`).join('')}
+          ${mo.crops.slice(0,3).filter(c=>!disCrops.includes(c)).map(c=>`<span class="ctag">${c}</span>`).join('')}
+        </div>
+      </div>
+      <div class="detail-box wide">
+        <div class="dbox-label">📋 Analysis Notes</div>
+        <div class="analysis-lines">
+          ${[...msgs,...warns].map(m=>`<div class="aline">${m}</div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+
+  // ── TAB: MARKET ────────────────────────────────────────────────────────────
+  const mktCrops = sd.marketPrices;
+  const tgtLabel = {local:'Local Mandi',state:'State APMC',national:'e-NAM National',export:'Export Market'}[mktTgt];
+  const farmMulti = {small:1,medium:3,large:15,xlarge:60}[farm];
+
+  let mktHtml = `
+    <div style="margin-bottom:14px;font-size:0.88rem;color:var(--text-light)">
+      🎯 Market target: <strong>${tgtLabel}</strong> &nbsp;|&nbsp; 🚜 Farm: <strong>${farm}</strong>
+    </div>
+    <div style="margin-bottom:10px;font-size:0.78rem;background:rgba(30,92,40,0.07);padding:8px 12px;border-radius:8px;color:var(--text-mid)">
+      📏 <strong>Scale Guide:</strong> &nbsp;1 Quintal = 100 kg &nbsp;|&nbsp; 1 Tonne = 1000 kg = 10 Quintals &nbsp;|&nbsp; MSP = Minimum Support Price guaranteed by Govt.
+    </div>
+    <table class="mkt-table">
+      <thead><tr>
+        <th>Crop</th>
+        <th>Govt. MSP</th>
+        <th>Market Price Breakdown</th>
+        <th>Trend</th>
+        <th>Est. Revenue</th>
+      </tr></thead><tbody>`;
+
+  mktCrops.forEach(p=>{
+    const trend = p.trend==='up'?'<span class="price-up">↑ Rising</span>':p.trend==='down'?'<span class="price-down">↓ Falling</span>':'<span class="price-neu">→ Stable</span>';
+    const msp   = p.mspRs ? `₹${p.mspRs.toLocaleString('en-IN')} /qtl` : '<span style="color:#aaa">No MSP</span>';
+    // Normalise to per-quintal
+    const isQtl   = p.unit.toLowerCase().includes('quintal');
+    const isKg    = p.unit.toLowerCase().includes('kg') || p.unit.toLowerCase().includes('kilo');
+    const isTonne = p.unit.toLowerCase().includes('tonne');
+    const isLitre = p.unit.toLowerCase().includes('litre') || p.unit.toLowerCase().includes('liter');
+    let perQtl = p.mandiRs;
+    if (isKg)    perQtl = p.mandiRs * 100;
+    if (isTonne) perQtl = p.mandiRs / 10;
+    const perKg    = (perQtl / 100).toFixed(2);
+    const per50kg  = Math.round(perQtl / 2).toLocaleString('en-IN');
+    const perTonne = (perQtl * 10).toLocaleString('en-IN', {maximumFractionDigits:0});
+    const rev      = isQtl ? `≈ ₹${(perQtl*farmMulti*0.4).toLocaleString('en-IN',{maximumFractionDigits:0})}` : '—';
+
+    const priceBlock = isLitre
+      ? `<div style="font-size:0.88rem;color:var(--text-mid)">₹${p.mandiRs.toLocaleString('en-IN')} per litre</div>`
+      : `<div style="display:flex;flex-direction:column;gap:3px">
+           <div style="font-size:0.9rem;font-weight:600;color:#1d4ed8">₹${perKg} <span style="font-weight:400;color:var(--text-light);font-size:0.78rem">per kg</span></div>
+           <div style="font-size:0.9rem;font-weight:600;color:#166534">₹${per50kg} <span style="font-weight:400;color:var(--text-light);font-size:0.78rem">per 50 kg (bag)</span></div>
+           <div style="font-size:0.9rem;font-weight:600;color:#92400e">₹${perQtl.toLocaleString('en-IN')} <span style="font-weight:400;color:var(--text-light);font-size:0.78rem">per quintal (100 kg)</span></div>
+           <div style="font-size:0.9rem;font-weight:600;color:#7c3aed">₹${perTonne} <span style="font-weight:400;color:var(--text-light);font-size:0.78rem">per tonne (1000 kg)</span></div>
+         </div>`;
+
+    mktHtml += `<tr>
+      <td><strong>${p.crop}</strong></td>
+      <td>${msp}</td>
+      <td>${priceBlock}</td>
+      <td>${trend}</td>
+      <td style="color:var(--good);font-weight:600">${rev}</td>
+    </tr>`;
+  });
+
+  mktHtml += `</tbody></table>
+    <div class="market-note">⚠️ Prices are indicative based on eNAM/AGMARKNET 2024–25 data. Actual mandi prices vary by date, grade and location. Always check local APMC before selling.</div>
+    <div style="margin-top:16px">
+      <div class="dbox-label">💹 Market Intelligence – ${tgtLabel}</div>
+      <div class="detail-grid" style="margin-top:8px">
+        ${mktCrops.slice(0,3).map(p=>{
+          const g = globalMarket[p.crop.split(' ')[0]];
+          return g ? `<div class="detail-box">
+            <div class="dbox-label">${p.crop}</div>
+            <div class="dbox-val">Demand: <span style="color:${g.demand.includes('High')?'#166534':'#92400e'}">${g.demand}</span></div>
+            <div style="font-size:0.8rem;margin-top:4px">Export: ${g.export}</div>
+          </div>` : '';
+        }).join('')}
+      </div>
+    </div>`;
+
+  document.getElementById('tab-market').innerHTML=mktHtml;
+
+  // ── TAB: CLIMATE ───────────────────────────────────────────────────────────
+  const rm = sd.rainMonths;
+  const maxRain = Math.max(...rm);
+  const rainSeasonMonths = rm.map((v,i)=>({m:MONTHS[i],v})).filter(x=>x.v>50).map(x=>x.m);
+  const dryMonths        = rm.map((v,i)=>({m:MONTHS[i],v})).filter(x=>x.v<15).map(x=>x.m);
+
+  const barsHtml = rm.map((v,i)=>{
+    const h = Math.max(4,Math.round((v/maxRain)*68));
+    const isRain = v===maxRain ? ' style="opacity:1"' : '';
+    return `<div class="rain-bar-wrap">
+      <div class="rain-bar-outer"><div class="rain-bar-fill" style="height:${h}px"${isRain}></div></div>
+      <div class="rain-month-lbl">${MONTHS[i]}</div>
+      <div class="rain-mm-lbl">${v}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('tab-climate').innerHTML=`
+    <div class="detail-grid">
+      <div class="detail-box wide">
+        <div class="dbox-label">🌧️ Monthly Rainfall (mm) – ${state}</div>
+        <div class="rain-months">${barsHtml}</div>
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(3,105,161,0.08);border-radius:10px;border-left:3px solid #0369a1">
+          <div style="font-size:0.75rem;font-weight:700;color:#0369a1;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">📅 What the chart shows</div>
+          <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.7">
+            Each bar = one month (Jan → Dec, left to right) &nbsp;·&nbsp; Height = amount of rainfall &nbsp;·&nbsp; Numbers below bar = millimetres (mm) of rain that month<br>
+            <span style="color:#0369a1;font-weight:600">🌊 Rainy months</span> (tall blue bars &gt;50mm): <strong>${rainSeasonMonths.length>0?rainSeasonMonths.join(', '):'None significant'}</strong> — best time to sow Kharif crops<br>
+            <span style="color:#b45309;font-weight:600">🏜️ Dry months</span> (short bars &lt;15mm): <strong>${dryMonths.length>0?dryMonths.join(', '):'None'}</strong> — irrigation essential during these months
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">🌊 Rain Season</div>
+        <div class="dbox-val">${rainSeasonMonths.length>0 ? rainSeasonMonths.join(', ') : 'Minimal Monsoon'}</div>
+        <div style="font-size:0.8rem;margin-top:4px;color:var(--text-light)">Peak: ${MONTHS[rm.indexOf(maxRain)]} (${maxRain}mm)</div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">🏜️ Dry Months</div>
+        <div class="dbox-val">${dryMonths.length>0 ? dryMonths.join(', ') : 'No severely dry months'}</div>
+        <div style="font-size:0.8rem;margin-top:4px;color:var(--text-light)">Irrigation needed in these months</div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">💦 Humidity</div>
+        <div class="dbox-val">${sd.humidity}% avg</div>
+        <div class="moisture-bar-bg"><div class="moisture-bar-fill" style="width:${sd.humidity}%;background:#0369a1"></div></div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">🌡️ Annual Rainfall</div>
+        <div class="dbox-val">${sd.rainfall}</div>
+        <div style="font-size:0.8rem;margin-top:4px;color:var(--text-light)">Avg: ~${sd.annualRain}mm/year</div>
+      </div>
+      <div class="detail-box wide">
+        <div class="dbox-label">💧 Soil Moisture Analysis</div>
+        <div class="moisture-grid">
+          <div class="moisture-item">
+            <div class="m-lbl">Current Input Moisture</div>
+            <div class="m-val" style="color:${mo.color}">${mo.label}</div>
+            <div class="moisture-bar-bg"><div class="moisture-bar-fill" style="width:${mo.pct}%;background:${mo.color}"></div></div>
+            <div style="font-size:0.8rem;margin-top:4px;color:var(--text-light)">${mo.pct}% volumetric water content</div>
+          </div>
+          <div class="moisture-item">
+            <div class="m-lbl">State Typical Moisture</div>
+            <div class="m-val" style="color:var(--blue)">${sd.soilMoisture}</div>
+            <div style="font-size:0.8rem;margin-top:8px;color:var(--text-light)">${mo.note}</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:0.86rem;color:var(--text-mid)">
+          💡 Best crops for <strong>${mo.label}</strong> moisture: 
+          <span style="color:var(--green-mid);font-weight:600">${mo.crops.join(', ')}</span>
+        </div>
+      </div>
+    </div>`;
+
+  // ── TAB: TIPS ──────────────────────────────────────────────────────────────
+  const peakRainMonth = MONTHS[rm.indexOf(maxRain)];
+  const sowMonths = season==='kharif'?'June–July':season==='rabi'?'October–November':'March–April';
+  document.getElementById('tab-tips').innerHTML=`
+    <div class="detail-grid">
+      <div class="detail-box wide">
+        <div class="dbox-label">🗓️ Ideal Sowing Calendar for ${state}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px">
+          <div style="background:rgba(30,92,40,0.08);border-radius:10px;padding:10px 12px">
+            <div style="font-weight:700;color:var(--green-mid)">🌧️ Kharif Season</div>
+            <div style="font-size:0.83rem;margin-top:4px">Sow: June–July<br>Harvest: Oct–Nov<br>Crops: Rice, Cotton, Maize, Soybean</div>
+          </div>
+          <div style="background:rgba(29,78,216,0.07);border-radius:10px;padding:10px 12px">
+            <div style="font-weight:700;color:#1d4ed8">❄️ Rabi Season</div>
+            <div style="font-size:0.83rem;margin-top:4px">Sow: Oct–Nov<br>Harvest: Mar–Apr<br>Crops: Wheat, Mustard, Gram, Peas</div>
+          </div>
+          <div style="background:rgba(212,135,10,0.08);border-radius:10px;padding:10px 12px">
+            <div style="font-weight:700;color:var(--amber)">☀️ Zaid Season</div>
+            <div style="font-size:0.83rem;margin-top:4px">Sow: Mar–Apr<br>Harvest: Jun<br>Crops: Cucumber, Watermelon, Muskmelon</div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">🌱 Your Selected Season</div>
+        <div class="dbox-val">Sow in ${sowMonths}</div>
+        <div style="font-size:0.82rem;margin-top:4px;color:var(--text-light)">Plan 2 weeks before monsoon onset<br>Peak rain: ${peakRainMonth}</div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">🌿 Soil Preparation Tips</div>
+        <div style="font-size:0.84rem;line-height:1.7;margin-top:4px">
+          ${soil==='black'?'• Deep ploughing (30–40cm)<br>• Lime if pH &lt;6.5<br>• Avoid over-irrigation':
+            soil==='alluvial'?'• Minimal tillage<br>• Add organic manure<br>• Test pH annually':
+            soil==='red'?'• Add compost to improve fertility<br>• Mulching reduces moisture loss<br>• Lime to correct acidity':
+            soil==='laterite'?'• Heavy organic matter addition<br>• Drip irrigation essential<br>• pH correction (very acidic)':
+            soil==='arid'?'• Wind-break plantations<br>• Drip irrigation only<br>• Cover crops prevent erosion':
+            soil==='sandy'?'• Organic matter addition<br>• Frequent light irrigation<br>• Mulching mandatory':
+            '• Consult local soil testing lab<br>• Add organic manure<br>• Proper drainage essential'}
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="dbox-label">💊 Government Schemes</div>
+        <div style="font-size:0.82rem;line-height:1.8;margin-top:4px">
+          📌 PM-KISAN (₹6000/year)<br>
+          📌 Pradhan Mantri Fasal Bima Yojana<br>
+          📌 Kisan Credit Card (KCC)<br>
+          📌 Soil Health Card Scheme<br>
+          📌 eNAM – Online Market Platform<br>
+          📌 RKVY – Agri Infrastructure Fund
+        </div>
+      </div>
+      <div class="detail-box wide">
+        <div class="dbox-label">🏪 Nearest Market Centres – ${state}</div>
+        <div style="font-size:0.84rem;color:var(--text-mid);margin-top:6px;line-height:1.8">
+          🔹 Locate your nearest <strong>APMC Mandi</strong> at <strong>agmarknet.nic.in</strong><br>
+          🔹 Register on <strong>eNAM portal (enam.gov.in)</strong> for national prices<br>
+          🔹 Call <strong>Kisan Call Centre: 1800-180-1551</strong> (free, all languages)<br>
+          🔹 Check <strong>Agri Market app</strong> for live mandi rates<br>
+          🔹 WhatsApp-based price alerts via <strong>Farmer Connect</strong>
+        </div>
+      </div>
+    </div>`;
+
+  card.style.display='block';
+  // Reset to overview tab
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.rtab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.rtab').classList.add('active');
+  document.getElementById('tab-overview').classList.add('active');
+  card.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// STATE CARDS RENDER
+// ═══════════════════════════════════════════════════════════════════════════
+let curFilter='all';
+
+const regionMap = {
+  north:["Haryana","Punjab","Rajasthan","Uttar Pradesh","Uttarakhand","Himachal Pradesh",
+         "Madhya Pradesh","Jammu & Kashmir","Ladakh","Delhi","Chandigarh"],
+  south:["Andhra Pradesh","Karnataka","Kerala","Tamil Nadu","Telangana","Puducherry"],
+  east: ["Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Jharkhand","Manipur",
+         "Meghalaya","Mizoram","Nagaland","Odisha","Sikkim","Tripura","West Bengal","Andaman & Nicobar Islands"],
+  west: ["Goa","Gujarat","Maharashtra","Lakshadweep","Dadra & Nagar Haveli"],
+  high_rain: statesData.filter(s=>s.annualRain>=2000).map(s=>s.name),
+  arid_zone: statesData.filter(s=>s.annualRain<600).map(s=>s.name)
+};
+
+function renderCards(data) {
+  const grid = document.getElementById('statesGrid');
+  if (!data.length) { grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:rgba(254,249,237,0.5)">No states found.</div>'; return; }
+
+  grid.innerHTML = data.map(s=>{
+    const maxR = Math.max(...s.rainMonths);
+    const miniBars = s.rainMonths.map(v=>{
+      const h = Math.max(2, Math.round((v/maxR)*28));
+      return `<div class="mini-bar" style="height:${h}px"></div>`;
+    }).join('');
+
+    const tClass = s.tempClass==='cold'?'cold':s.tempClass==='cool'?'cool':s.tempClass==='warm'?'warm':'hot';
+
+    const topPrices = s.marketPrices.slice(0,3).map(p=>{
+      const isQtl = p.unit.toLowerCase().includes('quintal');
+      const perQtl = isQtl ? p.mandiRs : p.mandiRs;
+      const perKg  = (perQtl / 100).toFixed(0);
+      return `<span class="ppill" title="${p.crop}">₹${perKg}/kg · ₹${p.mandiRs.toLocaleString('en-IN')}/qtl ${p.crop.split(' ')[0]}</span>`;
+    }).join('');
+
+    return `<div class="state-card ${s.type}">
+      <div class="sc-header">
+        <div class="sc-emoji">${s.emoji}</div>
+        <div>
+          <div class="sc-name">${s.name}</div>
+          <span class="sc-badge ${s.type}">${s.type==='state'?'State':'Union Territory'}</span>
+        </div>
+      </div>
+      <div class="sc-stats">
+        <div class="sc-row">
+          <span class="sc-row-ico">🌡️</span>
+          <div class="sc-row-body">
+            <div class="sc-row-key">Temperature Range</div>
+            <div class="sc-row-val"><span class="tbadge ${tClass}">${s.tempRange}</span> · ${s.climate}</div>
+          </div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-row-ico">🪨</span>
+          <div class="sc-row-body">
+            <div class="sc-row-key">Soils</div>
+            <div class="sc-row-val">${s.soils.join(' · ')}</div>
+          </div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-row-ico">🌧️</span>
+          <div class="sc-row-body">
+            <div class="sc-row-key">Rainfall · Humidity</div>
+            <div class="sc-row-val">${s.rainfall} · ${s.humidity}% humidity</div>
+            <div class="mini-rain-wrap">${miniBars}</div>
+          </div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-row-ico">🌱</span>
+          <div class="sc-row-body">
+            <div class="sc-row-key">Key Crops</div>
+            <div class="sc-row-val">
+              <div class="crop-tags">
+                ${s.crops.map((c,i)=>`<span class="ctag${i===0?' star':''}" style="font-size:0.72rem">${c}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sc-row">
+          <span class="sc-row-ico">💹</span>
+          <div class="sc-row-body">
+            <div class="sc-row-key">Market Prices (indicative)</div>
+            <div class="price-pills">${topPrices}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setFilter(f, el) {
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  curFilter=f;
+  filterCards();
+}
+
+function filterCards() {
+  const q=document.getElementById('stateSearch').value.toLowerCase();
+  let d=[...statesData];
+  if(curFilter==='state') d=d.filter(s=>s.type==='state');
+  else if(curFilter==='ut') d=d.filter(s=>s.type==='ut');
+  else if(regionMap[curFilter]) d=d.filter(s=>regionMap[curFilter].includes(s.name));
+
+  if(q) d=d.filter(s=>
+    s.name.toLowerCase().includes(q)||
+    s.soils.some(so=>so.toLowerCase().includes(q))||
+    s.crops.some(cr=>cr.toLowerCase().includes(q))||
+    s.climate.toLowerCase().includes(q)||
+    s.marketPrices.some(p=>p.crop.toLowerCase().includes(q))
+  );
+  renderCards(d);
+}
+
+// ── INIT
+renderCards(statesData);
+</script>
+</body>
+</html>
