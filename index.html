@@ -305,6 +305,28 @@
   .project-stack { display: flex; flex-wrap: wrap; gap: 8px; }
   .stack-pill { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent2); background: rgba(123,97,255,0.08); border: 1px solid rgba(123,97,255,0.2); padding: 4px 10px; }
 
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bg);
+    text-decoration: none;
+    border: none;
+    padding: 9px 20px;
+    background: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+    transition: all 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    box-shadow: 0 0 20px rgba(0,212,255,0.3);
+  }
+  .project-link:hover { background: #fff; box-shadow: 0 0 32px rgba(0,212,255,0.6); transform: translateY(-1px); }
+  .project-link::before { content: '↗'; font-size: 14px; }
+
   .project-meta { text-align: right; min-width: 130px; }
   .project-highlight { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 800; color: transparent; -webkit-text-stroke: 1px var(--accent3); letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
   .project-highlight-label { font-size: 10px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
@@ -533,7 +555,7 @@
         </div>
         <div class="project-meta">
           <div class="project-highlight">76.9%</div>
-          <div class="project-highlight-label"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="284569786818061d">[email&#160;protected]</a></div>
+          <div class="project-highlight-label">mAP@0.5</div>
           <br>
           <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent)">36</div>
           <div class="project-highlight-label">Classes</div>
@@ -549,6 +571,7 @@
             <span class="stack-pill">Scikit-learn</span><span class="stack-pill">XGBoost</span>
             <span class="stack-pill">Streamlit</span>
           </div>
+          <a href="https://airsight-ten.vercel.app/" target="_blank" rel="noopener" class="project-link">Live Demo</a>
         </div>
         <div class="project-meta">
           <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent2)">ML</div>
@@ -577,6 +600,29 @@
           <div class="project-highlight-label">Auth Secured</div>
         </div>
       </div>
+
+      <div class="project-card reveal">
+        <div>
+          <div class="project-index">PROJECT / 04</div>
+          <div class="project-name">RaithuRaju — Crop Intelligence Platform</div>
+          <p class="project-desc">End-to-end ML web application that recommends crops, predicts market price trends and analyses farming suitability for any location across India. The entire Random Forest model — trained in Python — runs live inside the browser with no server.</p>
+          <div class="project-stack">
+            <span class="stack-pill">Machine Learning</span><span class="stack-pill">Random Forest</span>
+            <span class="stack-pill">Python</span><span class="stack-pill">Scikit-learn</span>
+            <span class="stack-pill">GIS Data</span><span class="stack-pill">Agricultural Tech</span>
+            <span class="stack-pill">JavaScript</span><span class="stack-pill">Static Deployment</span>
+          </div>
+          <a href="https://raitheraju.onrender.com" target="_blank" rel="noopener" class="project-link">Live Demo</a>
+        </div>
+        <div class="project-meta">
+          <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent3)">ML</div>
+          <div class="project-highlight-label">In Browser</div>
+          <br>
+          <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent)">All</div>
+          <div class="project-highlight-label">India</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
