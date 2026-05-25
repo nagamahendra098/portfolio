@@ -334,6 +334,8 @@
   /* EXPERIENCE */
   #experience { background: var(--surface); }
 
+  .exp-list { display: flex; flex-direction: column; gap: 2px; }
+
   .exp-card { background: var(--bg); border: 1px solid var(--border); padding: 40px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; transition: border-color 0.3s; }
   .exp-card:hover { border-color: rgba(0,212,255,0.3); }
 
@@ -348,6 +350,19 @@
   .exp-achievements { display: flex; flex-wrap: wrap; gap: 12px; }
   .exp-achievement { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--accent3); background: rgba(0,255,179,0.05); border: 1px solid rgba(0,255,179,0.15); padding: 6px 14px; }
   .exp-achievement::before { content: '↑'; font-size: 14px; }
+
+  /* current badge */
+  .exp-current {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent3);
+    background: rgba(0,255,179,0.08);
+    border: 1px solid rgba(0,255,179,0.25);
+    padding: 3px 10px;
+  }
 
   /* CERTIFICATIONS */
   .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
@@ -484,8 +499,18 @@
         <div class="skill-group-title">Frontend &amp; Backend</div>
         <div class="skill-tags">
           <span class="skill-tag">React</span><span class="skill-tag">Angular</span>
-          <span class="skill-tag">Spring Boot</span><span class="skill-tag">Flask</span>
-          <span class="skill-tag">Tailwind CSS</span><span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Spring Boot</span><span class="skill-tag">Django</span>
+          <span class="skill-tag">Flask</span><span class="skill-tag">Express</span>
+          <span class="skill-tag">Node.js</span><span class="skill-tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">APIs &amp; Integration</div>
+        <div class="skill-tags">
+          <span class="skill-tag">REST APIs</span><span class="skill-tag">GraphQL</span>
+          <span class="skill-tag">Webhooks</span><span class="skill-tag">JSON</span>
+          <span class="skill-tag">OAuth 2.0</span><span class="skill-tag">Microservices</span>
+          <span class="skill-tag">Shopify</span>
         </div>
       </div>
       <div class="skill-group">
@@ -494,7 +519,7 @@
           <span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span>
           <span class="skill-tag">Random Forest</span><span class="skill-tag">TensorFlow</span>
           <span class="skill-tag">PyTorch</span><span class="skill-tag">YOLOv8</span>
-          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">OpenCV</span><span class="skill-tag">ANN</span>
         </div>
       </div>
       <div class="skill-group">
@@ -502,7 +527,7 @@
         <div class="skill-tags">
           <span class="skill-tag">Apache Spark</span><span class="skill-tag">ETL Pipelines</span>
           <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
-          <span class="skill-tag">SQLAlchemy</span>
+          <span class="skill-tag">SQLAlchemy</span><span class="skill-tag">Big Data Processing</span>
         </div>
       </div>
       <div class="skill-group">
@@ -542,28 +567,11 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-list">
+
+      <!-- PROJECT 01: Flight Price Predictor -->
       <div class="project-card reveal">
         <div>
           <div class="project-index">PROJECT / 01</div>
-          <div class="project-name">Object Detection &amp; Classification System</div>
-          <p class="project-desc">Real-time computer vision system for supermarket checkout automation. Trained YOLO architectures (v7–v12) on a custom 36-class dataset. Achieved 73% precision, optimized to 2.36 ms/frame using pruning, quantization, ONNX and TensorRT on edge devices.</p>
-          <div class="project-stack">
-            <span class="stack-pill">Python</span><span class="stack-pill">YOLOv8</span>
-            <span class="stack-pill">PyTorch</span><span class="stack-pill">OpenCV</span>
-            <span class="stack-pill">TensorRT</span><span class="stack-pill">ONNX</span>
-          </div>
-        </div>
-        <div class="project-meta">
-          <div class="project-highlight">76.9%</div>
-          <div class="project-highlight-label">mAP@0.5</div>
-          <br>
-          <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent)">36</div>
-          <div class="project-highlight-label">Classes</div>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div>
-          <div class="project-index">PROJECT / 02</div>
           <div class="project-name">Flight Price Predictor</div>
           <p class="project-desc">End-to-end ML pipeline for airline ticket price prediction. Feature-engineered large-scale datasets, trained Random Forest + XGBoost models with cross-validation, deployed as a live Streamlit web app for real-time fare estimates.</p>
           <div class="project-stack">
@@ -581,9 +589,11 @@
           <div class="project-highlight-label">Web App</div>
         </div>
       </div>
+
+      <!-- PROJECT 02: BookSwap -->
       <div class="project-card reveal">
         <div>
-          <div class="project-index">PROJECT / 03</div>
+          <div class="project-index">PROJECT / 02</div>
           <div class="project-name">BookSwap — VIT Verified Book Exchange</div>
           <p class="project-desc">Digital marketplace for university students to trade textbooks via interactive chat. Secure Google OAuth 2.0 with institutional email validation, Spring Boot backend with full CRUD, Supabase-managed data, optimized for fast response times.</p>
           <div class="project-stack">
@@ -591,6 +601,7 @@
             <span class="stack-pill">React</span><span class="stack-pill">Tailwind</span>
             <span class="stack-pill">OAuth 2.0</span><span class="stack-pill">Docker</span>
           </div>
+          <a href="https://bookswap-vitae-landing.vercel.app" target="_blank" rel="noopener" class="project-link">Live Demo</a>
         </div>
         <div class="project-meta">
           <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent3)">Full</div>
@@ -601,9 +612,10 @@
         </div>
       </div>
 
+      <!-- PROJECT 03: RaithuRaju -->
       <div class="project-card reveal">
         <div>
-          <div class="project-index">PROJECT / 04</div>
+          <div class="project-index">PROJECT / 03</div>
           <div class="project-name">RaithuRaju — Crop Intelligence Platform</div>
           <p class="project-desc">End-to-end ML web application that recommends crops, predicts market price trends and analyses farming suitability for any location across India. The entire Random Forest model — trained in Python — runs live inside the browser with no server.</p>
           <div class="project-stack">
@@ -623,6 +635,49 @@
         </div>
       </div>
 
+      <!-- PROJECT 04: Spark -->
+      <div class="project-card reveal">
+        <div>
+          <div class="project-index">PROJECT / 04</div>
+          <div class="project-name">Spark — AI-Powered Startup Idea Validator</div>
+          <p class="project-desc">Full-stack AI application that generates structured startup validation reports covering market analysis, risk, and profitability. Engineered prompt workflows using Grok AI to ensure consistent JSON outputs. Asynchronous backend with frontend polling handles AI latency without blocking UX.</p>
+          <div class="project-stack">
+            <span class="stack-pill">React</span><span class="stack-pill">Node.js</span>
+            <span class="stack-pill">Express</span><span class="stack-pill">MongoDB</span>
+            <span class="stack-pill">Grok AI</span><span class="stack-pill">REST APIs</span>
+          </div>
+          <a href="https://aiideavalidator.vercel.app" target="_blank" rel="noopener" class="project-link">Live Demo</a>
+        </div>
+        <div class="project-meta">
+          <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent2)">AI</div>
+          <div class="project-highlight-label">Powered</div>
+          <br>
+          <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent2)">Full</div>
+          <div class="project-highlight-label">Stack</div>
+        </div>
+      </div>
+
+      <!-- PROJECT 05: Object Detection (last) -->
+      <div class="project-card reveal">
+        <div>
+          <div class="project-index">PROJECT / 05</div>
+          <div class="project-name">Object Detection &amp; Classification System</div>
+          <p class="project-desc">Real-time computer vision system for supermarket checkout automation. Trained YOLO architectures (v7–v12) on a custom 36-class dataset. Achieved 73% precision, optimized to 2.36 ms/frame using pruning, quantization, ONNX and TensorRT on edge devices.</p>
+          <div class="project-stack">
+            <span class="stack-pill">Python</span><span class="stack-pill">YOLOv8</span>
+            <span class="stack-pill">PyTorch</span><span class="stack-pill">OpenCV</span>
+            <span class="stack-pill">TensorRT</span><span class="stack-pill">ONNX</span>
+          </div>
+        </div>
+        <div class="project-meta">
+          <div class="project-highlight">76.9%</div>
+          <div class="project-highlight-label">mAP@0.5</div>
+          <br>
+          <div class="project-highlight" style="-webkit-text-stroke-color:var(--accent)">36</div>
+          <div class="project-highlight-label">Classes</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -635,22 +690,47 @@
       <h2 class="section-title">Experience</h2>
       <div class="section-line"></div>
     </div>
-    <div class="exp-card reveal">
-      <div class="exp-left">
-        <div class="exp-company">Blue Stock</div>
-        <div class="exp-type">Fintech</div>
-        <div class="exp-period">Aug 2025 — Sep 2025</div>
-        <div class="exp-location">📍 Remote</div>
-      </div>
-      <div>
-        <div class="exp-role">Software Development Intern</div>
-        <p class="exp-desc">Developed a financial analysis system using Python, Pandas, SQLAlchemy, and Scikit-learn to process financial statements at scale. Built an ML-based pipeline that automated metric classification and streamlined large-scale analysis workflows with real-time web visualization.</p>
-        <div class="exp-achievements">
-          <span class="exp-achievement">50K+ transactions processed</span>
-          <span class="exp-achievement">40% reduction in manual analysis</span>
-          <span class="exp-achievement">MySQL-backed reporting</span>
+    <div class="exp-list">
+
+      <!-- Current: Eazy AI -->
+      <div class="exp-card reveal">
+        <div class="exp-left">
+          <div class="exp-company">Eazy AI</div>
+          <div class="exp-type">Agentic AI</div>
+          <div class="exp-period">May 2026 — Present</div>
+          <div class="exp-location">📍 Bangalore</div>
+          <div class="exp-current">● Current</div>
+        </div>
+        <div>
+          <div class="exp-role">Software Development Intern</div>
+          <p class="exp-desc">Working on payment enablement systems by developing scalable backend services and RESTful APIs and GraphQL for secure transaction processing. Contributing to payment integration workflows with a focus on reliability, performance optimization, and seamless financial operations. Enhancing database efficiency, authentication mechanisms, and API handling for high-volume payment workflows.</p>
+          <div class="exp-achievements">
+            <span class="exp-achievement">Payment enablement systems</span>
+            <span class="exp-achievement">GraphQL + REST APIs</span>
+            <span class="exp-achievement">High-volume workflows</span>
+          </div>
         </div>
       </div>
+
+      <!-- Previous: Blue Stock -->
+      <div class="exp-card reveal">
+        <div class="exp-left">
+          <div class="exp-company">Blue Stock</div>
+          <div class="exp-type">Fintech</div>
+          <div class="exp-period">Aug 2025 — Sep 2025</div>
+          <div class="exp-location">📍 Remote</div>
+        </div>
+        <div>
+          <div class="exp-role">Software Development Intern</div>
+          <p class="exp-desc">Developed a financial analysis system using Python, Pandas, SQLAlchemy, and Scikit-learn to process financial statements at scale. Built an ML-based pipeline that automated metric classification and streamlined large-scale analysis workflows with real-time web visualization.</p>
+          <div class="exp-achievements">
+            <span class="exp-achievement">50K+ transactions processed</span>
+            <span class="exp-achievement">40% reduction in manual analysis</span>
+            <span class="exp-achievement">MySQL-backed reporting</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -697,7 +777,7 @@
         <div class="edu-period">Sep 2022 — Apr 2026</div>
         <div class="edu-inst">Vellore Institute of Technology</div>
         <div class="edu-degree">B.Tech — Computer Science Engineering</div>
-        <div class="edu-grade">8.32</div>
+        <div class="edu-grade">8.38</div>
         <div class="edu-grade-label">CGPA</div>
       </div>
       <div class="edu-card reveal" data-degree="12th">
@@ -752,10 +832,10 @@
         <p class="contact-sub">Open to internships, full-time roles, and project collaborations in data engineering, machine learning, or full-stack development.</p>
       </div>
       <div class="contact-links reveal">
-        <a href="/cdn-cgi/l/email-protection#c7a9a6a0a6aaa6afa2a9a3b5a6aaf7feff87a0aaa6aeabe9a4a8aa" class="contact-link">
+        <a href="mailto:nagamahendram098@gmail.com" class="contact-link">
           <div>
             <div class="contact-link-label">Email</div>
-            <div class="contact-link-value"><span class="__cf_email__" data-cfemail="4f212e282e222e272a212b3d2e227f76770f28222e2623612c2022">[email&#160;protected]</span></div>
+            <div class="contact-link-value">nagamahendram098@gmail.com</div>
           </div>
           <span class="contact-link-arrow">↗</span>
         </a>
@@ -773,6 +853,13 @@
           </div>
           <span class="contact-link-arrow">↗</span>
         </a>
+        <a href="https://github.com/nagamahendra098" target="_blank" rel="noopener" class="contact-link">
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">github.com/nagamahendra098</div>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
       </div>
     </div>
   </div>
@@ -784,7 +871,7 @@
   <div class="footer-copy">VIT Vellore · CSE '26 · Built with ♥</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Cursor glow
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
@@ -792,10 +879,8 @@
     cursor.style.top = e.clientY + 'px';
   });
 
-  // Scroll reveal — content visible by default, animation as enhancement
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-
-  // Add animate class so hidden state only applies when JS works
   reveals.forEach(el => el.classList.add('animate'));
 
   function checkReveal() {
@@ -812,4 +897,23 @@
 
   // Nav active highlight
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = docum
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === '#' + current) {
+        link.style.color = 'var(--accent)';
+      }
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
